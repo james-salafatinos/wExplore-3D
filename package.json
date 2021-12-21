@@ -10,7 +10,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "three-creative-controls": "^1.0.1"
   },
   "engines": {
     "node": "8.x"

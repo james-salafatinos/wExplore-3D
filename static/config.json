@@ -1,0 +1,11 @@
+{
+    "graphs": [
+        {
+            "name": "dwarf",
+            "id": 1,
+            "type": "directed graph",
+            "filepath": "static/dwarfAttribute.json",
+            "origin": [-100,0,0]
+        }
+    ]
+}
