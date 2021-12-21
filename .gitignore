@@ -1,13 +1,14 @@
 /Deliverables
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-
+/node_modules
 SSL
 notes.txt
 
 *.ipynb
 
 /archive
+/.config
 
 accessor.js
 
