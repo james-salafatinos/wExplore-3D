@@ -5,6 +5,7 @@ import { OrbitControls } from "https://cdn.skypack.dev/three/examples/jsm/contro
 import { PointerLockControls } from "/modules/PointerLockControls.js";
 import { FontLoader } from '/modules/FontLoader.js';
 import { CSS2DRenderer, CSS2DObject } from "/modules/CSS2DRenderer.js";
+import { CSS3DRenderer, CSS3DObject } from "/modules/CSS3DRenderer.js";
 
 let camera, scene, renderer, controls;
 const objects = [];
@@ -463,7 +464,7 @@ function init() {
         var html = [
 
             '<div style="width:' + 0 + 'px; height:' + 0 + 'px;">',
-            '<iframe src="' + url + '" width="' + 500 + '" height="' + 500 + '">',
+            '<iframe src="' + url + '" width="' + 800 + '" height="' + 800 + '">',
             '</iframe>',
             '</div>'
 
@@ -471,15 +472,19 @@ function init() {
 
         scene.add(mesh)
 
+        let frameScale = new THREE.Vector3(.01,.01,.01)
+
         const frameDiv = document.createElement('div');
         frameDiv.className = 'label';
         frameDiv.innerHTML = html;
         frameDiv.style.marginTop = '-1em';
-        const frameLabel = new CSS2DObject(frameDiv);
+        const frameLabel = new CSS3DObject(frameDiv);
+        frameLabel.scale.set(frameScale.x, frameScale.y, frameScale.z)
+        console.log('frameLabel', frameLabel)
         // frameLabel.position.set(_x, _y, _z);
-        frameLabel.position.x = camera.position.x + 2 * cameraLookDir(camera).x
-        frameLabel.position.y = camera.position.y + 2 * cameraLookDir(camera).y
-        frameLabel.position.z = camera.position.z + 2 * cameraLookDir(camera).z
+        frameLabel.position.x = -1
+        frameLabel.position.y = 17
+        frameLabel.position.z = -4
         mesh.add(frameLabel);
 
         meshes.push(mesh)
@@ -552,7 +557,7 @@ function init() {
     document.body.appendChild(renderer.domElement);
 
 
-    labelRenderer = new CSS2DRenderer();
+    labelRenderer = new CSS3DRenderer();
     labelRenderer.setSize(window.innerWidth, window.innerHeight);
     labelRenderer.domElement.style.position = 'absolute';
     labelRenderer.domElement.style.top = '0px';
