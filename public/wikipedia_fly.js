@@ -22,15 +22,16 @@ const direction = new THREE.Vector3();
 const vertex = new THREE.Vector3();
 const color = new THREE.Color();
 let GRAVITY = 1
+let crosshair;
+const pointer = new THREE.Vector2();
+let INTERSECTED;
 
 init();
 animate();
 
 function init() {
-
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
     camera.position.y = 10;
-
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x0000f);
@@ -42,13 +43,11 @@ function init() {
 
     controls = new PointerLockControls(camera, document.body);
 
-
     const blocker = document.getElementById('blocker');
     const instructions = document.getElementById('instructions');
 
     const gridHelper = new THREE.GridHelper(50);
     scene.add(gridHelper);
-
 
     instructions.addEventListener('click', function () {
         // Controls
@@ -145,16 +144,224 @@ function init() {
                 moveDown = false
                 break;
 
+            case 'KeyE':
+                var mouse = { x: 1, y: 1 };
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+                let cameraLookDir = function (camera) {
+                    var vector = new THREE.Vector3(0, 0, -1);
+                    vector.applyEuler(camera.rotation, camera.rotation.order);
+                    return vector;
+                }
+                console.log('Camera Vec', cameraLookDir(camera))
+
+
+                let arrow = new THREE.ArrowHelper(cameraLookDir(camera), camera.position, 10, Math.random() * 0xffffff);
+                scene.add(arrow);
+
+
+                //Raycast
+                raycaster = new THREE.Raycaster();
+                raycaster.setFromCamera(pointer, camera);
+                const intersects = raycaster.intersectObjects(scene.children, false);
+
+                if (intersects.length > 0) {
+                    console.log(intersects)
+                } else {
+
+                    INTERSECTED = null;
+                }
+
+                break;
+
         }
 
     };
 
+
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('keyup', onKeyUp);
-
     raycaster = new THREE.Raycaster(new THREE.Vector3(), new THREE.Vector3(0, - 1, 0), 0, 10);
 
-    let placeText = function (font, label, size, x, y, z) {
+
+    //CONFIG
+    const CONFIG_FP = 'static/config.json'
+    const FONT_TYPEFACE = '/modules/helvetiker_regular.typeface.json'
+    const EDGE_OPACITY = .1//.05
+    const SCALE = 10
+
+
+    //Main script
+    let populate = function (CONFIG_FP) {
+        fetch(CONFIG_FP)
+            .then(response => response.json())
+            .then(config => {
+
+                //Log Config
+                console.log('Configuration: ', config)
+                //Plot Config
+                plot(config)
+            });
+
+        let plot = (config) => {
+
+            //For Each Graph
+            config['graphs'].forEach((graph_config) => {
+                console.log('graph', graph_config)
+                //Load Graph
+                fetch(graph_config.filepath)
+                    .then(response => response.json())
+                    .then(DATA => {
+                        //Logging
+                        console.log(`Raw Data for ${graph_config.name}:`, DATA)
+
+                        //Plot Nodes and Edges
+                        dotPlot(DATA, graph_config)
+                        edgePlot(DATA)
+
+                        //Plot Text
+                        const loader = new FontLoader();
+
+                        loader.load(FONT_TYPEFACE, function (font) {
+                            try {
+                                for (let i = 0; i <= DATA.nodes.length; i += 1) {
+                                    let label = DATA.nodes[i]['label']
+                                    let size = DATA.nodes[i]['attributes']['importance']//.2
+                                    let x = graph_config['origin'][0] + DATA.nodes[i]['x'] / SCALE
+                                    let y = graph_config['origin'][1] + DATA.nodes[i]['y'] / SCALE
+                                    let z = graph_config['origin'][2] + 0
+                                    // let z = DATA.nodes[i]['z'] / SCALE
+
+                                    labelPlot(font, label, size, x, y, z)
+                                }
+                            } catch {
+                                console.log('Error, unable to load label (probably an out of bounds error)')
+
+                            }
+
+
+
+                        })
+                    });
+
+            });
+
+        }
+
+    }
+    populate(CONFIG_FP)
+
+    //Custom Shader
+    let uniforms = {
+        pointTexture: { value: new THREE.TextureLoader().load("/static/spark1.png") }
+    };
+    //Custom Shader
+    const shaderMaterial = new THREE.ShaderMaterial({
+
+        uniforms: uniforms,
+        vertexShader: document.getElementById('vertexshader').textContent,
+        fragmentShader: document.getElementById('fragmentshader').textContent,
+
+        blending: THREE.AdditiveBlending,
+        depthTest: false,
+        transparent: true,
+        vertexColors: true
+
+    });
+
+    //Plot Dots
+    var db = {}
+    let dotPlot = function (DATA, graph_config) {
+        const vertices = [];
+        const colors = [];
+        const sizes = [];
+        const geometry = new THREE.BufferGeometry();
+        for (let i = 0; i <= DATA.nodes.length; i += 1) {
+            try {
+                //Push Node XY Data
+                let _x = graph_config['origin'][0] + DATA.nodes[i]['x'] / SCALE
+                let _y = graph_config['origin'][1] + DATA.nodes[i]['y'] / SCALE
+                let _z = graph_config['origin'][2] + 0 / SCALE
+                vertices.push(_x)
+                vertices.push(_y)
+                vertices.push(_z)
+                //vertices.push(DATA.nodes[i]['z'] / SCALE)//vertices.push(0 / SCALE)
+
+                sizes.push(DATA.nodes[i]['size'] ** 2);
+
+                // const color = new THREE.Color("rgb(255, 0, 0)");
+                const color = new THREE.Color(DATA.nodes[i]['color']);
+
+
+                colors.push(color.r, color.g, color.b);
+
+
+                //Create Hash for Edges
+                db[DATA.nodes[i]['label']] = { x: _x, y: _y, z: _z }
+
+            } catch (error) {
+                console.log("undefined!!")
+            }
+        }
+        // console.log(db)
+
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        geometry.setAttribute('size', new THREE.Float32BufferAttribute(sizes, 1).setUsage(THREE.DynamicDrawUsage));
+
+
+
+        // // let material = new THREE.PointsMaterial({ size: NODE_SIZE, sizeAttenuation: true, alphaTest: 0.5, transparent: true, vertexColors: true });
+        // let material = new THREE.PointsMaterial({ size: NODE_SIZE, sizeAttenuation: true, alphaTest: 0.5, transparent: true });
+        // material.color.setHSL(.6, 0.8, 0.9);
+        const particles = new THREE.Points(geometry, shaderMaterial);
+        scene.add(particles);
+    }
+
+
+    //Plot Edges
+    let edgePlot = function (DATA, graph_config) {
+
+        const points = [];
+        for (let i = 0; i <= DATA.edges.length; i += 1) {
+            // console.log(db[DATA.edges[i]['source']])
+            try {
+                points.push(
+                    new THREE.Vector3(
+                        db[DATA.edges[i]['source']]['x'],
+                        db[DATA.edges[i]['source']]['y'],
+                        0));
+                //db[DATA.edges[i]['source']]['z']).multiplyScalar(1 / SCALE));
+                points.push(
+                    new THREE.Vector3(
+                        db[DATA.edges[i]['target']]['x'],
+                        db[DATA.edges[i]['target']]['y'],
+                        0));
+                //db[DATA.edges[i]['source']]['z']).multiplyScalar(1 / SCALE));
+
+            } catch (error) {
+                console.log("undefined!!")
+            }
+        }
+        // console.log(points)
+
+
+        const material = new THREE.LineBasicMaterial({
+            color: 0xffffff,
+            linewidth: 1,
+            linecap: 'round', //ignored by WebGLRenderer
+            linejoin: 'round', //ignored by WebGLRenderer
+            transparent: true,
+            opacity: EDGE_OPACITY
+        })
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+        const line = new THREE.LineSegments(geometry, material);
+        scene.add(line);
+    }
+
+
+    let labelPlot = function (font, label, size, x, y, z) {
         //Define
         const color = 0x0f66ff;
         const matLite = new THREE.MeshBasicMaterial({
@@ -181,183 +388,36 @@ function init() {
 
     }
 
-
-    let CONFIG = 'static/config.json'
-    fetch(CONFIG)
-    .then(response => response.json())
-    .then(DATA => {
-        console.log('Configuration: ', DATA)
-    });
-    //CONFIG
-    const g_dwarf = "static/dwarf.json"
-    const t_financial = "static/financial_data.json"
-    const g_dwarfAttribute = "static/dwarfAttribute.json"
-    const g_sunshine = "static/sunshine.json"
-    const g_sunshineAttribute = "static/sunshineAttribute.json"
-    const FONT_TYPEFACE = '/modules/helvetiker_regular.typeface.json'
-    const EDGE_OPACITY = .1//.05
-    const SCALE = 10
-
-    // Grabs internal static files 
-    fetch(g_sunshineAttribute)
-        .then(response => response.json())
-        .then(DATA => {
-
-            //Logging
-            console.log('Raw Data:', DATA)
-
-            //Plot Nodes and Edges
-            dotPlot(DATA)
-            edgePlot(DATA)
-
-            //Plot  Text
-            const loader = new FontLoader();
-            loader.load(FONT_TYPEFACE, function (font) {
-                for (let i = 0; i <= DATA.nodes.length; i += 1) {
-                    let label = DATA.nodes[i]['label']
-                    let size = DATA.nodes[i]['attributes']['importance']//.2
-                    let x = DATA.nodes[i]['x'] / SCALE
-                    let y = DATA.nodes[i]['y'] / SCALE
-                    let z = 0
-                    // let z = DATA.nodes[i]['z'] / SCALE
-
-
-                    placeText(font, label, size, x, y, z)
-                }
-            })
-
+    let createCrosshair = function (_x, _y, _z) {
+        let mat = new THREE.MeshBasicMaterial({
+            wireframe: true,
+            transparent: false,
+            depthTest: false,
+            side: THREE.DoubleSide
         });
+        let geo = new THREE.BoxGeometry(.01, .01, .01)
+        let mesh = new THREE.Mesh(geo, mat)
+        mesh.position.x = _x
+        mesh.position.y = _y
+        mesh.position.z = _z
+        return mesh
+    }
+
+    crosshair = createCrosshair(camera.position.x, camera.position.y, camera.position.z)
+    scene.add(crosshair)
 
 
-    // // Grabs internal static files 
-    // fetch(g_dwarfAttribute)
-    //     .then(response => response.json())
-    //     .then(DATA => {
-    //         console.log(DATA)
-    //         dotPlot(DATA)
-    //         edgePlot(DATA)
-
-    //         //Label Text
-    //         const loader = new FontLoader();
-    //         loader.load(FONT_TYPEFACE, function (font) {
-    //             for (let i = 0; i <= DATA.nodes.length; i += 1) {
-                
-    //                 let label = DATA.nodes[i]['label']
-    //                 let size = DATA.nodes[i]['attributes']['importance']//.2
-    //                 let x = DATA.nodes[i]['x'] / SCALE
-    //                 let y = DATA.nodes[i]['y'] / SCALE
-    //                 let z = 0
-    //                 // let z = DATA.nodes[i]['z'] / SCALE
-    //                 // console.log(label,x)
-    //                 placeText(font, label, size, x, y, z)
-    //             }
-    //         })
-
-    //     });
+    window.addEventListener('click', function (event) {
+        console.log("In Double Click")
+        var mouse = { x: 1, y: 1 };
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    })
 
 
-    let uniforms = {
-        pointTexture: { value: new THREE.TextureLoader().load("/static/spark1.png") }
-    };
-
-    const shaderMaterial = new THREE.ShaderMaterial({
-
-        uniforms: uniforms,
-        vertexShader: document.getElementById('vertexshader').textContent,
-        fragmentShader: document.getElementById('fragmentshader').textContent,
-
-        blending: THREE.AdditiveBlending,
-        depthTest: false,
-        transparent: true,
-        vertexColors: true
-
-    });
 
 
-    var db = {}
-    let dotPlot = function (DATA) {
-        const vertices = [];
-        const colors = [];
-        const sizes = [];
-        const geometry = new THREE.BufferGeometry();
-        for (let i = 0; i <= DATA.nodes.length; i += 1) {
-            try {
-                //Push Node XY Data
-                vertices.push(DATA.nodes[i]['x'] / SCALE)
-                vertices.push(DATA.nodes[i]['y'] / SCALE)
-                vertices.push(0 / SCALE)
-                //vertices.push(DATA.nodes[i]['z'] / SCALE)//vertices.push(0 / SCALE)
-               
-                sizes.push(DATA.nodes[i]['size'] ** 2);
-                
-                // const color = new THREE.Color("rgb(255, 0, 0)");
-                const color = new THREE.Color(DATA.nodes[i]['color']);
-
-
-                colors.push(color.r, color.g, color.b);
-
-            
-                //Create Hash for Edges
-                db[DATA.nodes[i]['label']] = { x: DATA.nodes[i]['x'], y: DATA.nodes[i]['y'], z: DATA.nodes[i]['z'] }
-
-            } catch (error) {
-                console.log("undefined!!")
-            }
-        }
-        // console.log(db)
-        
-        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-        geometry.setAttribute('size', new THREE.Float32BufferAttribute(sizes, 1).setUsage(THREE.DynamicDrawUsage));
     
-
-
-        // // let material = new THREE.PointsMaterial({ size: NODE_SIZE, sizeAttenuation: true, alphaTest: 0.5, transparent: true, vertexColors: true });
-        // let material = new THREE.PointsMaterial({ size: NODE_SIZE, sizeAttenuation: true, alphaTest: 0.5, transparent: true });
-        // material.color.setHSL(.6, 0.8, 0.9);
-        const particles = new THREE.Points(geometry, shaderMaterial);
-        scene.add(particles);
-    }
-
-
-    let edgePlot = function (DATA) {
-
-        const points = [];
-        for (let i = 0; i <= DATA.edges.length; i += 1) {
-            // console.log(db[DATA.edges[i]['source']])
-            try {
-                points.push(
-                    new THREE.Vector3(
-                        db[DATA.edges[i]['source']]['x'],
-                        db[DATA.edges[i]['source']]['y'],
-                        0).multiplyScalar(1 / SCALE));
-                //db[DATA.edges[i]['source']]['z']).multiplyScalar(1 / SCALE));
-                points.push(
-                    new THREE.Vector3(
-                        db[DATA.edges[i]['target']]['x'],
-                        db[DATA.edges[i]['target']]['y'],
-                        0).multiplyScalar(1 / SCALE));
-                //db[DATA.edges[i]['source']]['z']).multiplyScalar(1 / SCALE));
-
-            } catch (error) {
-                console.log("undefined!!")
-            }
-        }
-        // console.log(points)
-
-
-        const material = new THREE.LineBasicMaterial({
-            color: 0xffffff,
-            linewidth: 1,
-            linecap: 'round', //ignored by WebGLRenderer
-            linejoin: 'round', //ignored by WebGLRenderer
-            transparent: true,
-            opacity: EDGE_OPACITY
-        })
-        const geometry = new THREE.BufferGeometry().setFromPoints(points);
-        const line = new THREE.LineSegments(geometry, material);
-        scene.add(line);
-    }
 
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -367,6 +427,7 @@ function init() {
 
     window.addEventListener('resize', onWindowResize);
 
+    //Zoom
     window.addEventListener('wheel', (event) => {
         event.preventDefault(); /// prevent scrolling
 
@@ -378,14 +439,15 @@ function init() {
         camera.updateProjectionMatrix(); /// make the changes take effect
     }, { passive: false });
 
-}
+    function onWindowResize() {
 
-function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
 
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
 
 }
 
@@ -422,31 +484,23 @@ function animate() {
         if (moveLeft || moveRight) velocity.x -= direction.x * 400.0 * delta;
         if (moveUp || moveDown) velocity.y -= direction.y * 400.0 * delta;
 
-        // if (onObject === true) {
-
-        //     velocity.y = Math.max(0, velocity.y);
-        //     canJump = true;
-
-        // }
-
         controls.moveRight(- velocity.x * delta);
         controls.moveForward(- velocity.z * delta);
         controls.moveUp(velocity.y * delta);
 
-        // controls.getObject().position.y += (velocity.y * delta); // new behavior
-
-        // if (controls.getObject().position.y < 10) {
-
-        //     velocity.y = 0;
-        //     controls.getObject().position.y = 10;
-
-        //     canJump = true;
-
-        // }
-
     }
 
     prevTime = time;
+
+    //Crosshair
+    let cameraLookDir = function (camera) {
+        var vector = new THREE.Vector3(0, 0, -1);
+        vector.applyEuler(camera.rotation, camera.rotation.order);
+        return vector;
+    }
+    crosshair.position.x = camera.position.x + 2 * cameraLookDir(camera).x
+    crosshair.position.y = camera.position.y + 2 * cameraLookDir(camera).y
+    crosshair.position.z = camera.position.z + 2 * cameraLookDir(camera).z
 
     renderer.render(scene, camera);
 

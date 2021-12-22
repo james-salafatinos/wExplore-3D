@@ -6,7 +6,13 @@
             "type": "directed graph",
             "filepath": "static/dwarfAttribute.json",
             "origin": [-200,0,0]
+        },
+        {
+            "name": "sunshine",
+            "id": 1,
+            "type": "directed graph",
+            "filepath": "static/sunshineAttribute.json",
+            "origin": [200,0,0]
         }
-
     ]
 } 
