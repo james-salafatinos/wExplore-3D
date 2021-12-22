@@ -4,7 +4,7 @@ import * as THREE from "https://cdn.skypack.dev/three";
 import { OrbitControls } from "https://cdn.skypack.dev/three/examples/jsm/controls/OrbitControls";
 import { PointerLockControls } from "/modules/PointerLockControls.js";
 import { FontLoader } from '/modules/FontLoader.js';
-
+import { CSS2DRenderer, CSS2DObject } from "/modules/CSS2DRenderer.js";
 
 let camera, scene, renderer, controls;
 const objects = [];
@@ -25,7 +25,13 @@ let GRAVITY = 1
 let crosshair;
 const pointer = new THREE.Vector2();
 let INTERSECTED;
+let labelRenderer;
+let iFrame;
+let arrow
 
+let labels = []
+let meshes = []
+let cameraLookDir
 init();
 animate();
 
@@ -149,7 +155,7 @@ function init() {
                 mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
                 mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-                let cameraLookDir = function (camera) {
+                cameraLookDir = function (camera) {
                     var vector = new THREE.Vector3(0, 0, -1);
                     vector.applyEuler(camera.rotation, camera.rotation.order);
                     return vector;
@@ -157,7 +163,7 @@ function init() {
                 console.log('Camera Vec', cameraLookDir(camera))
 
 
-                let arrow = new THREE.ArrowHelper(cameraLookDir(camera), camera.position, 10, Math.random() * 0xffffff);
+                arrow = new THREE.ArrowHelper(cameraLookDir(camera), camera.position, 10, Math.random() * 0xffffff);
                 scene.add(arrow);
 
 
@@ -167,13 +173,46 @@ function init() {
                 const intersects = raycaster.intersectObjects(scene.children, false);
 
                 if (intersects.length > 0) {
-                    console.log(intersects)
+                    //console.log(intersects)
+                    let not_found = true;
+                    intersects.forEach(element => {
+                        if (element.object.type == "Mesh" && not_found) {
+                            not_found = false;
+                            console.log("Raycast found Label, ", element)
+                            console.log("Raycase found label.userdata.url", element.object.userData.url)
+                            iFrame = createFrame("Sunshine_Policy",
+                                camera.position.x + cameraLookDir(camera).x,
+                                camera.position.y + cameraLookDir(camera).y,
+                                camera.position.z + cameraLookDir(camera).z)
+
+                        }
+                        // console.log(element.object.type)
+
+                    });
                 } else {
 
                     INTERSECTED = null;
                 }
 
                 break;
+
+            case 'KeyF':
+                scene.remove(arrow)
+                meshes.forEach((element) => {
+                    scene.remove(element)
+                })
+                labels.forEach((element) => {
+                    scene.remove(element)
+                })
+                scene.remove(iFrame)
+
+                let DOMFrames = document.getElementsByClassName('label')
+                for (let item of DOMFrames) {
+                    item.remove()
+                }
+                console.log("Removed DOM Frames, ", DOMFrames)
+                break;
+
 
         }
 
@@ -232,8 +271,9 @@ function init() {
                                     let y = graph_config['origin'][1] + DATA.nodes[i]['y'] / SCALE
                                     let z = graph_config['origin'][2] + 0
                                     // let z = DATA.nodes[i]['z'] / SCALE
+                                    let userData = { url: "Sunshine_Policy" }
 
-                                    labelPlot(font, label, size, x, y, z)
+                                    labelPlot(font, label, size, x, y, z, { url: "Sunshine_Policy" })
                                 }
                             } catch {
                                 console.log('Error, unable to load label (probably an out of bounds error)')
@@ -361,8 +401,9 @@ function init() {
     }
 
 
-    let labelPlot = function (font, label, size, x, y, z) {
+    let labelPlot = function (font, label, size, x, y, z, userData) {
         //Define
+
         const color = 0x0f66ff;
         const matLite = new THREE.MeshBasicMaterial({
             color: color,
@@ -384,6 +425,7 @@ function init() {
         geometry.translate(x, y, z + 1);
         //Add
         const text = new THREE.Mesh(geometry, matLite);
+        text.userData = userData
         scene.add(text);
 
     }
@@ -407,25 +449,118 @@ function init() {
     scene.add(crosshair)
 
 
-    window.addEventListener('click', function (event) {
-        console.log("In Double Click")
-        var mouse = { x: 1, y: 1 };
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    })
+
+    let createFrame = function (url, _x, _y, _z) {
+        let mat = new THREE.MeshBasicMaterial({
+        });
+        let geo = new THREE.BoxGeometry(.5, .5, .5)
+        let mesh = new THREE.Mesh(geo, mat)
+        mesh.position.x = _x
+        mesh.position.y = _y
+        mesh.position.z = _z
+
+        var url = `https://en.wikipedia.org/wiki/${url}`
+        var html = [
+
+            '<div style="width:' + 0 + 'px; height:' + 0 + 'px;">',
+            '<iframe src="' + url + '" width="' + 500 + '" height="' + 500 + '">',
+            '</iframe>',
+            '</div>'
+
+        ].join('\n');
+
+        scene.add(mesh)
+
+        const frameDiv = document.createElement('div');
+        frameDiv.className = 'label';
+        frameDiv.innerHTML = html;
+        frameDiv.style.marginTop = '-1em';
+        const frameLabel = new CSS2DObject(frameDiv);
+        // frameLabel.position.set(_x, _y, _z);
+        frameLabel.position.x = camera.position.x + 2 * cameraLookDir(camera).x
+        frameLabel.position.y = camera.position.y + 2 * cameraLookDir(camera).y
+        frameLabel.position.z = camera.position.z + 2 * cameraLookDir(camera).z
+        mesh.add(frameLabel);
+
+        meshes.push(mesh)
+        labels.push(frameLabel)
+        return mesh
+
+    }
+
+    // const EARTH_RADIUS = 1;
+    // const MOON_RADIUS = 0.27;
+    // const earthGeometry = new THREE.SphereGeometry(EARTH_RADIUS, 16, 16);
+    // const earthMaterial = new THREE.MeshPhongMaterial({
+    //     specular: 0x333333,
+    //     shininess: 5,
+
+    //     normalScale: new THREE.Vector2(0.85, 0.85)
+    // });
+    // const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+    // scene.add(earth);
+
+    // const moonGeometry = new THREE.SphereGeometry(MOON_RADIUS, 16, 16);
+    // const moonMaterial = new THREE.MeshPhongMaterial({
+    //     shininess: 5,
+    // });
+    // moon = new THREE.Mesh(moonGeometry, moonMaterial);
+    // scene.add(moon);
 
 
 
+    // //
 
-    
+    // var url = "https://en.wikipedia.org/wiki/Sunshine_Policy"
+    // var html = [
 
+    //     '<div style="width:' + 50 + 'px; height:' + 50 + 'px;">',
+    //     '<iframe src="' + url + '" width="' + 500 + '" height="' + 500 + '">',
+    //     '</iframe>',
+    //     '</div>'
+
+    // ].join('\n');
+
+
+
+    // //
+    // const earthDiv = document.createElement('div');
+    // earthDiv.className = 'label';
+    // earthDiv.innerHTML = html;
+    // earthDiv.style.marginTop = '-1em';
+    // const earthLabel = new CSS2DObject(earthDiv);
+    // earthLabel.position.set(0, EARTH_RADIUS, 0);
+    // earth.add(earthLabel);
+
+    // const moonDiv = document.createElement('div');
+    // moonDiv.className = 'label';
+    // moonDiv.textContent = 'Moon';
+    // moonDiv.style.marginTop = '-1em';
+    // const moonLabel = new CSS2DObject(moonDiv);
+    // moonLabel.position.set(0, MOON_RADIUS, 0);
+    // moon.add(moonLabel);
+
+    //
+
+    //
+
+    ///
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    window.addEventListener('resize', onWindowResize);
+
+    labelRenderer = new CSS2DRenderer();
+    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+    labelRenderer.domElement.style.position = 'absolute';
+    labelRenderer.domElement.style.top = '0px';
+    document.body.appendChild(labelRenderer.domElement);
+
+
+
+
 
     //Zoom
     window.addEventListener('wheel', (event) => {
@@ -439,6 +574,17 @@ function init() {
         camera.updateProjectionMatrix(); /// make the changes take effect
     }, { passive: false });
 
+    window.addEventListener('click', function (event) {
+        console.log("In Double Click")
+        var mouse = { x: 1, y: 1 };
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        // Controls
+        controls.lock();
+    })
+
+
+    window.addEventListener('resize', onWindowResize);
     function onWindowResize() {
 
         camera.aspect = window.innerWidth / window.innerHeight;
@@ -493,7 +639,7 @@ function animate() {
     prevTime = time;
 
     //Crosshair
-    let cameraLookDir = function (camera) {
+    cameraLookDir = function (camera) {
         var vector = new THREE.Vector3(0, 0, -1);
         vector.applyEuler(camera.rotation, camera.rotation.order);
         return vector;
@@ -503,6 +649,7 @@ function animate() {
     crosshair.position.z = camera.position.z + 2 * cameraLookDir(camera).z
 
     renderer.render(scene, camera);
+    labelRenderer.render(scene, camera);
 
 }
 
