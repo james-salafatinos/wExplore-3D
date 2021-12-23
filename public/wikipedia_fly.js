@@ -236,7 +236,7 @@ function init() {
     const CONFIG_FP = 'static/config.json'
     const FONT_TYPEFACE = '/modules/helvetiker_regular.typeface.json'
     const EDGE_OPACITY = .1//.05
-    const SCALE = .5
+    const SCALE = 10
 
 
     //Main script
@@ -338,7 +338,7 @@ function init() {
                 //Push Node XY Data
                 let _x = graph_config['origin'][0] + DATA.nodes[i]['x'] / SCALE
                 let _y = graph_config['origin'][1] + DATA.nodes[i]['y'] / SCALE
-                let _z = graph_config['origin'][2] + DATA.nodes[i]['z'] / SCALE
+                let _z = 0//let _z = graph_config['origin'][2] + DATA.nodes[i]['z'] / SCALE
                 vertices.push(_x)
                 vertices.push(_y)
                 vertices.push(_z)
