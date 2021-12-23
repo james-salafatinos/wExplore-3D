@@ -278,7 +278,7 @@ function init() {
                                     let size = .4//DATA.nodes[i]['attributes']['importance']//.2
                                     let x = graph_config['origin'][0] + DATA.nodes[i]['x'] / SCALE
                                     let y = graph_config['origin'][1] + DATA.nodes[i]['y'] / SCALE
-                                    let z = graph_config['origin'][2] + DATA.nodes[i]['z'] / SCALE
+                                    let z = 1//let z = graph_config['origin'][2] + DATA.nodes[i]['z'] / SCALE
                                     // let z = DATA.nodes[i]['z'] / SCALE
                                     let userData = { url: "Sunshine_Policy" }
 
