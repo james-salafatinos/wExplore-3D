@@ -27,7 +27,7 @@ h1{
   font-size: 4rem;
 }
 p{
-  font-site:1.3rem;
+  font-size:1.3rem;
   width:55%;
   color:rg(107,107,122)
 }
@@ -35,7 +35,7 @@ p{
 button{
   font-size: 1.1rem;
   padding: .5em 1em;
-  margin-top 3em;
+  margin-top: 3em;
   background-color: rgb(0,114,255);
   border:none;
   color: white;

@@ -1,10 +1,6 @@
 import * as THREE from "https://cdn.skypack.dev/three";
-// import * as THREE from '/modules/three';
-// import * as THREE from "/build/three.module.js"
-import { OrbitControls } from "https://cdn.skypack.dev/three/examples/jsm/controls/OrbitControls";
 import { PointerLockControls } from "/modules/PointerLockControls.js";
 import { FontLoader } from '/modules/FontLoader.js';
-import { CSS2DRenderer, CSS2DObject } from "/modules/CSS2DRenderer.js";
 import { CSS3DRenderer, CSS3DObject } from "/modules/CSS3DRenderer.js";
 
 let camera, scene, renderer, controls;
@@ -18,21 +14,32 @@ let moveUp = false;
 let moveDown = false;
 let canJump = false;
 let prevTime = performance.now();
+
 const velocity = new THREE.Vector3();
 const direction = new THREE.Vector3();
+const GRAVITY = 1
+
 const vertex = new THREE.Vector3();
 const color = new THREE.Color();
-let GRAVITY = 1
-let crosshair;
 const pointer = new THREE.Vector2();
-let INTERSECTED;
+
+let player;
+let players = []
+let otherPlayer
+
+let crosshair;
 let labelRenderer;
 let iFrame;
 let arrow
-
 let labels = []
 let meshes = []
 let cameraLookDir
+
+let gridHelper
+let sendmouse
+let frameIndex
+var socket;
+
 init();
 animate();
 
@@ -52,9 +59,6 @@ function init() {
 
     const blocker = document.getElementById('blocker');
     const instructions = document.getElementById('instructions');
-
-    const gridHelper = new THREE.GridHelper(50);
-    scene.add(gridHelper);
 
     instructions.addEventListener('click', function () {
         // Controls
@@ -213,7 +217,10 @@ function init() {
                 }
                 console.log("Removed DOM Frames, ", DOMFrames)
                 break;
-
+            case 'KeyG':
+                console.log("Pressed G Key")
+                mouseDragged()
+                break;
 
         }
 
@@ -229,7 +236,7 @@ function init() {
     const CONFIG_FP = 'static/config.json'
     const FONT_TYPEFACE = '/modules/helvetiker_regular.typeface.json'
     const EDGE_OPACITY = .1//.05
-    const SCALE = 10
+    const SCALE = .5
 
 
     //Main script
@@ -267,10 +274,11 @@ function init() {
                             try {
                                 for (let i = 0; i <= DATA.nodes.length; i += 1) {
                                     let label = DATA.nodes[i]['label']
-                                    let size = DATA.nodes[i]['attributes']['importance']//.2
+                                    
+                                    let size = .2///DATA.nodes[i]['attributes']['importance']//.2
                                     let x = graph_config['origin'][0] + DATA.nodes[i]['x'] / SCALE
                                     let y = graph_config['origin'][1] + DATA.nodes[i]['y'] / SCALE
-                                    let z = graph_config['origin'][2] + 0
+                                    let z = graph_config['origin'][2] + DATA.nodes[i]['z'] / SCALE
                                     // let z = DATA.nodes[i]['z'] / SCALE
                                     let userData = { url: "Sunshine_Policy" }
 
@@ -281,6 +289,13 @@ function init() {
 
                             }
 
+
+                            gridHelper = new THREE.GridHelper(250);
+                            gridHelper.position.x = graph_config['origin'][0]
+                            gridHelper.position.y = graph_config['origin'][1] - 200
+                            gridHelper.position.z = graph_config['origin'][2]
+                            console.log(gridHelper)
+                            scene.add(gridHelper);
 
 
                         })
@@ -323,7 +338,7 @@ function init() {
                 //Push Node XY Data
                 let _x = graph_config['origin'][0] + DATA.nodes[i]['x'] / SCALE
                 let _y = graph_config['origin'][1] + DATA.nodes[i]['y'] / SCALE
-                let _z = graph_config['origin'][2] + 0 / SCALE
+                let _z = graph_config['origin'][2] + DATA.nodes[i]['z'] / SCALE
                 vertices.push(_x)
                 vertices.push(_y)
                 vertices.push(_z)
@@ -449,6 +464,24 @@ function init() {
     crosshair = createCrosshair(camera.position.x, camera.position.y, camera.position.z)
     scene.add(crosshair)
 
+    // let createPlayer = function (_x, _y, _z, size_scale) {
+    //     let mat = new THREE.MeshPhongMaterial({
+    //         wireframe: false,
+    //         transparent: false,
+    //         depthTest: false,
+    //         side: THREE.DoubleSide
+    //     });
+    //     let geo = new THREE.BoxGeometry(size_scale, size_scale, size_scale)
+    //     let mesh = new THREE.Mesh(geo, mat)
+    //     mesh.position.x = _x
+    //     mesh.position.y = _y
+    //     mesh.position.z = _z
+    //     return mesh
+    // }
+    // player = createPlayer(0, 0, 0)
+    // camera.add(player)
+    // scene.add(player)
+
 
 
     let createFrame = function (url, _x, _y, _z) {
@@ -472,7 +505,7 @@ function init() {
 
         scene.add(mesh)
 
-        let frameScale = new THREE.Vector3(.01,.01,.01)
+        let frameScale = new THREE.Vector3(.01, .01, .01)
 
         const frameDiv = document.createElement('div');
         frameDiv.className = 'label';
@@ -493,63 +526,6 @@ function init() {
 
     }
 
-    // const EARTH_RADIUS = 1;
-    // const MOON_RADIUS = 0.27;
-    // const earthGeometry = new THREE.SphereGeometry(EARTH_RADIUS, 16, 16);
-    // const earthMaterial = new THREE.MeshPhongMaterial({
-    //     specular: 0x333333,
-    //     shininess: 5,
-
-    //     normalScale: new THREE.Vector2(0.85, 0.85)
-    // });
-    // const earth = new THREE.Mesh(earthGeometry, earthMaterial);
-    // scene.add(earth);
-
-    // const moonGeometry = new THREE.SphereGeometry(MOON_RADIUS, 16, 16);
-    // const moonMaterial = new THREE.MeshPhongMaterial({
-    //     shininess: 5,
-    // });
-    // moon = new THREE.Mesh(moonGeometry, moonMaterial);
-    // scene.add(moon);
-
-
-
-    // //
-
-    // var url = "https://en.wikipedia.org/wiki/Sunshine_Policy"
-    // var html = [
-
-    //     '<div style="width:' + 50 + 'px; height:' + 50 + 'px;">',
-    //     '<iframe src="' + url + '" width="' + 500 + '" height="' + 500 + '">',
-    //     '</iframe>',
-    //     '</div>'
-
-    // ].join('\n');
-
-
-
-    // //
-    // const earthDiv = document.createElement('div');
-    // earthDiv.className = 'label';
-    // earthDiv.innerHTML = html;
-    // earthDiv.style.marginTop = '-1em';
-    // const earthLabel = new CSS2DObject(earthDiv);
-    // earthLabel.position.set(0, EARTH_RADIUS, 0);
-    // earth.add(earthLabel);
-
-    // const moonDiv = document.createElement('div');
-    // moonDiv.className = 'label';
-    // moonDiv.textContent = 'Moon';
-    // moonDiv.style.marginTop = '-1em';
-    // const moonLabel = new CSS2DObject(moonDiv);
-    // moonLabel.position.set(0, MOON_RADIUS, 0);
-    // moon.add(moonLabel);
-
-    //
-
-    //
-
-    ///
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -563,6 +539,68 @@ function init() {
     labelRenderer.domElement.style.top = '0px';
     document.body.appendChild(labelRenderer.domElement);
 
+
+
+
+    // // Start a socket connection to the server
+    // // Some day we would run this server somewhere else
+    // socket = io.connect('http://localhost:3000');
+
+    // // We make a named event called 'mouse' and write an
+    // // anonymous callback function
+    // socket.on('mouse',
+    //     // When we receive data
+    //     function (data) {
+    //         console.log("mouse: " + data.x + " " + data.y + " " + data.z);
+            
+    //         if (players.length == 0){
+    //             otherPlayer = createPlayer(data.x, data.y, data.z)
+    //             scene.add(otherPlayer)
+    //         }
+            
+    //         otherPlayer.position.x = data.x
+    //         otherPlayer.position.y = data.y
+    //         otherPlayer.position.z = data.z
+     
+    //     });
+    // socket.on('msg',
+    //     // When we receive data
+    //     function (data) {
+    //         console.log('msg:', data)
+
+
+    //     }
+    // );
+
+    // function mouseDragged() {
+    //     //Crosshair
+    //     cameraLookDir = function (camera) {
+    //         var vector = new THREE.Vector3(0, 0, -1);
+    //         vector.applyEuler(camera.rotation, camera.rotation.order);
+    //         return vector;
+    //     }
+    //     let __x = camera.position.x + 2 * cameraLookDir(camera).x
+    //     let __y = camera.position.y + 2 * cameraLookDir(camera).y
+    //     let __z =  camera.position.z + 2 * cameraLookDir(camera).z
+
+    //     sendmouse(__x, __y, __z);
+    // }
+
+    // // Function for sending to the socket
+    // sendmouse = function(xpos, ypos, zpos) {
+    //     // We are sending!
+    //     console.log("sendmouse: " + xpos + " " + ypos + " " + zpos);
+
+    //     // Make a little object with  and y
+    //     var data = {
+    //         x: xpos,
+    //         y: ypos,
+    //         z: zpos
+    //     };
+
+    //     // Send that object to the socket
+    //     socket.emit('mouse', data);
+    // }
 
 
 
@@ -603,7 +641,7 @@ function init() {
 }
 
 
-
+frameIndex = 0;
 function animate() {
 
     requestAnimationFrame(animate);
@@ -639,7 +677,15 @@ function animate() {
         controls.moveForward(- velocity.z * delta);
         controls.moveUp(velocity.y * delta);
 
+        gridHelper.rotation.y += .0005
+
     }
+
+    // if (frameIndex % 5 ==0){
+    //     sendmouse(player.position.x , player.position.y , player.position.z );
+    // }
+
+
 
     prevTime = time;
 
@@ -653,8 +699,14 @@ function animate() {
     crosshair.position.y = camera.position.y + 2 * cameraLookDir(camera).y
     crosshair.position.z = camera.position.z + 2 * cameraLookDir(camera).z
 
+    // player.position.x = camera.position.x -  cameraLookDir(camera).x
+    // player.position.y = camera.position.y -  cameraLookDir(camera).y
+    // player.position.z = camera.position.z -  cameraLookDir(camera).z
+
     renderer.render(scene, camera);
     labelRenderer.render(scene, camera);
+
+    frameIndex ++;
 
 }
 

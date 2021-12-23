@@ -1,10 +1,10 @@
 {
     "graphs": [
         {
-            "name": "dwarf",
-            "id": 0,
+            "name": "Space Cadet",
+            "id": 1,
             "type": "directed graph",
-            "filepath": "static/dwarfAttribute.json",
+            "filepath": "static/data.json",
             "origin": [-200,0,0]
         }
 
