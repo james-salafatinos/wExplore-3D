@@ -4,8 +4,8 @@
             "name": "Space Cadet",
             "id": 1,
             "type": "directed graph",
-            "filepath": "static/data.json",
-            "origin": [-200,0,0]
+            "filepath": "data/data.json",
+            "origin": [-20,100,0]
         }
 
     ]

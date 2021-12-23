@@ -275,7 +275,7 @@ function init() {
                                 for (let i = 0; i <= DATA.nodes.length; i += 1) {
                                     let label = DATA.nodes[i]['label']
                                     
-                                    let size = .2///DATA.nodes[i]['attributes']['importance']//.2
+                                    let size = .4//DATA.nodes[i]['attributes']['importance']//.2
                                     let x = graph_config['origin'][0] + DATA.nodes[i]['x'] / SCALE
                                     let y = graph_config['origin'][1] + DATA.nodes[i]['y'] / SCALE
                                     let z = graph_config['origin'][2] + DATA.nodes[i]['z'] / SCALE

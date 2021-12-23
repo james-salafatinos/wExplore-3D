@@ -90,7 +90,7 @@ def get_page_rank_and_colors(G):
         node_color_map[k] = rgba_str
         size_map[k] = max(1, 1 + np.log1p(v*100))
 
-    return node_color_map, size_map
+    return node_color_map, size_map, color_values_from_PR
 
 
 def convert_one_node(color_map, size_map, label='default', x=0, y=0, z=0, _id=0, attributes={}):
@@ -119,19 +119,23 @@ def convert_one_edge(source='default', target='default', _id=0, attributes={}, c
     return _dict
 
 
-def synthesize(G, embeddings, color_map, size_map, attributes=0):
+def synthesize(G, embeddings, color_map, size_map, color_values_from_PR, attributes=0):
     json_G = json_graph.node_link_data(G)
+
+    cv_map = dict(color_values_from_PR)
 
     nodes = []
     edges = []
 
     for node in json_G['nodes']:
+        # print(node)
         x, y = embeddings[node['id']]
         converted_node = convert_one_node(label=node['label'],
                                           x=x,
                                           y=y,
                                           z=0,
                                           _id=node['id'],
+                                          attributes = {'importance': cv_map[node['label']]},
                                           color_map=color_map,
                                           size_map=size_map)
         nodes.append(converted_node)
@@ -156,6 +160,6 @@ if __name__ == "__main__":
 
     G = loadGEXF(args.gexf_file)
     embeddings = compute_embeddings(G)
-    color_map, size_map = get_page_rank_and_colors(G)
-    payload = synthesize(G, embeddings, color_map, size_map)
+    color_map, size_map, color_values_from_PR = get_page_rank_and_colors(G)
+    payload = synthesize(G, embeddings, color_map, size_map, color_values_from_PR)
     write_to_json(payload, 'data.json')

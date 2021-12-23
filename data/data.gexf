@@ -5,257 +5,389 @@
   </meta>
   <graph defaultedgetype="directed" mode="static" name="">
     <nodes>
-      <node id="Tom Corbett, Space Cadet" label="Tom Corbett, Space Cadet" />
-      <node id="Flash Gordon" label="Flash Gordon" />
-      <node id="Buck Rogers" label="Buck Rogers" />
-      <node id="The Ernie Kovacs Show" label="The Ernie Kovacs Show" />
-      <node id="Brains Benton" label="Brains Benton" />
-      <node id="Television" label="Television" />
-      <node id="Cherry Ames" label="Cherry Ames" />
-      <node id="Pep Cereal" label="Pep Cereal" />
-      <node id="Western Publishing" label="Western Publishing" />
-      <node id="Flash Gordon's Trip to Mars" label="Flash Gordon's Trip to Mars" />
-      <node id="Chip Hilton" label="Chip Hilton" />
-      <node id="Jan Merlin" label="Jan Merlin" />
-      <node id="DuMont Television Network" label="DuMont Television Network" />
-      <node id="Daily comic strip" label="Daily comic strip" />
-      <node id="Christopher Cool" label="Christopher Cool" />
-      <node id="Danny Dunn" label="Danny Dunn" />
-      <node id="Commando Cody: Sky Marshal of the Universe" label="Commando Cody: Sky Marshal of the Universe" />
-      <node id="Internet Speculative Fiction Database" label="Internet Speculative Fiction Database" />
-      <node id="Space Patrol (1950 TV series)" label="Space Patrol (1950 TV series)" />
-      <node id="The Colonial Radio Theatre on the Air" label="The Colonial Radio Theatre on the Air" />
-      <node id="National Broadcasting Company" label="National Broadcasting Company" />
-      <node id="Meg Duncan" label="Meg Duncan" />
-      <node id="Bob and Ray" label="Bob and Ray" />
-      <node id="ISBN (identifier)" label="ISBN (identifier)" />
-      <node id="American Broadcasting Company" label="American Broadcasting Company" />
-      <node id="Comic strip" label="Comic strip" />
-      <node id="Space opera" label="Space opera" />
-      <node id="Military science fiction" label="Military science fiction" />
-      <node id="TidalWave Productions" label="TidalWave Productions" />
-      <node id="Trixie Belden" label="Trixie Belden" />
-      <node id="Frankie Thomas" label="Frankie Thomas" />
-      <node id="Journey into Space" label="Journey into Space" />
-      <node id="World Distributors" label="World Distributors" />
-      <node id="Planetary romance" label="Planetary romance" />
-      <node id="Space Cadet" label="Space Cadet" />
-      <node id="The Purple Monster Strikes" label="The Purple Monster Strikes" />
-      <node id="Paul S. Newman" label="Paul S. Newman" />
-      <node id="Science fiction" label="Science fiction" />
-      <node id="LibriVox" label="LibriVox" />
-      <node id="Zombies of the Stratosphere" label="Zombies of the Stratosphere" />
-      <node id="The Happy Hollisters" label="The Happy Hollisters" />
-      <node id="Judy Bolton Series" label="Judy Bolton Series" />
-      <node id="Columbia Broadcasting System" label="Columbia Broadcasting System" />
-      <node id="Eternity Comics" label="Eternity Comics" />
-      <node id="Racist" label="Racist" />
-      <node id="Willy Ley" label="Willy Ley" />
-      <node id="Wayback Machine" label="Wayback Machine" />
-      <node id="Flash Gordon (1954 TV series)" label="Flash Gordon (1954 TV series)" />
-      <node id="Atom Squad" label="Atom Squad" />
-      <node id="Tom Corbett" label="Tom Corbett" />
-      <node id="Playset" label="Playset" />
-      <node id="Bronc Burnett" label="Bronc Burnett" />
-      <node id="Dell Comics" label="Dell Comics" />
-      <node id="Frank Sutton" label="Frank Sutton" />
-      <node id="IMDb" label="IMDb" />
-      <node id="Brick Bradford (serial)" label="Brick Bradford (serial)" />
-      <node id="Penny Parker" label="Penny Parker" />
-      <node id="Rick Brant" label="Rick Brant" />
-      <node id="Down You Go" label="Down You Go" />
-      <node id="Tom Quest" label="Tom Quest" />
-      <node id="Biff Brewster" label="Biff Brewster" />
-      <node id="Connie Blair" label="Connie Blair" />
-      <node id="Buck Rogers in the 25th Century (radio series)" label="Buck Rogers in the 25th Century (radio series)" />
-      <node id="Pennsylvania" label="Pennsylvania" />
-      <node id="Temple University Press" label="Temple University Press" />
-      <node id="The Hardy Boys" label="The Hardy Boys" />
-      <node id="Flash Gordon (serial)" label="Flash Gordon (serial)" />
-      <node id="Captain Z-Ro" label="Captain Z-Ro" />
-      <node id="Penguin Books" label="Penguin Books" />
-      <node id="Lost Planet Airmen" label="Lost Planet Airmen" />
-      <node id="Tom Corbett's Wonder Book of Space" label="Tom Corbett's Wonder Book of Space" />
-      <node id="The Original Amateur Hour" label="The Original Amateur Hour" />
-      <node id="Tom Swift Jr." label="Tom Swift Jr." />
-      <node id="Flash Gordon Conquers the Universe" label="Flash Gordon Conquers the Universe" />
-      <node id="Nancy Drew" label="Nancy Drew" />
-      <node id="Standard Ebooks" label="Standard Ebooks" />
-      <node id="Etsy" label="Etsy" />
-      <node id="Milton Caniff" label="Milton Caniff" />
-      <node id="The Dana Girls" label="The Dana Girls" />
-      <node id="Commando Cody" label="Commando Cody" />
-      <node id="Comic book" label="Comic book" />
-      <node id="Edward Bryce" label="Edward Bryce" />
-      <node id="Kay Tracey" label="Kay Tracey" />
-      <node id="Power Boys" label="Power Boys" />
-      <node id="Sue Barton" label="Sue Barton" />
-      <node id="Captain Video: Master of the Stratosphere" label="Captain Video: Master of the Stratosphere" />
-      <node id="Bunkroom" label="Bunkroom" />
-      <node id="Marcia Martin" label="Marcia Martin" />
-      <node id="Fictional character" label="Fictional character" />
-      <node id="Internet Archive" label="Internet Archive" />
-      <node id="Joseph Greene (writer)" label="Joseph Greene (writer)" />
-      <node id="Orbit One Zero" label="Orbit One Zero" />
-      <node id="Robert A. Heinlein" label="Robert A. Heinlein" />
-      <node id="Orbiter X" label="Orbiter X" />
-      <node id="Ballantine Books" label="Ballantine Books" />
-      <node id="Al Markim" label="Al Markim" />
-      <node id="Ken Holt" label="Ken Holt" />
-      <node id="View-Master" label="View-Master" />
-      <node id="Project Gutenberg" label="Project Gutenberg" />
-      <node id="Ginny Gordon" label="Ginny Gordon" />
-      <node id="PDF" label="PDF" />
-      <node id="Science fiction opera" label="Science fiction opera" />
-      <node id="Alfred Bester" label="Alfred Bester" />
-      <node id="King of the Rocket Men" label="King of the Rocket Men" />
-      <node id="Grosset &amp; Dunlap" label="Grosset &amp; Dunlap" />
-      <node id="John Fiedler" label="John Fiedler" />
-      <node id="Buck Rogers (serial)" label="Buck Rogers (serial)" />
-      <node id="Four Color" label="Four Color" />
-      <node id="Jack Grimes (actor)" label="Jack Grimes (actor)" />
-      <node id="Rocky Jones, Space Ranger" label="Rocky Jones, Space Ranger" />
-      <node id="The Arthur Murray Party" label="The Arthur Murray Party" />
-      <node id="Vicki Barr (novel series)" label="Vicki Barr (novel series)" />
-      <node id="Pantomime Quiz" label="Pantomime Quiz" />
-      <node id="Radar Men from the Moon" label="Radar Men from the Moon" />
-      <node id="Radio" label="Radio" />
-      <node id="Beverly Gray" label="Beverly Gray" />
-      <node id="Rod Brown of the Rocket Rangers" label="Rod Brown of the Rocket Rangers" />
-      <node id="Ray Bailey (comics)" label="Ray Bailey (comics)" />
-      <node id="Dan Dare" label="Dan Dare" />
-      <node id="Captain Video and His Video Rangers" label="Captain Video and His Video Rangers" />
-      <node id="Flying Disc Man from Mars" label="Flying Disc Man from Mars" />
-      <node id="March of Comics" label="March of Comics" />
-      <node id="Space Command (TV series)" label="Space Command (TV series)" />
-      <node id="The Lost Planet" label="The Lost Planet" />
-      <node id="Prize Comics" label="Prize Comics" />
+      <node id="Archipelago" label="Archipelago" />
+      <node id="Regressive delta" label="Regressive delta" />
+      <node id="Hapua" label="Hapua" />
+      <node id="Arpeggio" label="Arpeggio" />
+      <node id="Gut (coastal geography)" label="Gut (coastal geography)" />
+      <node id="Land elevation" label="Land elevation" />
+      <node id="Island Chain Strategy" label="Island Chain Strategy" />
+      <node id="Classical Antiquity" label="Classical Antiquity" />
+      <node id="Continental shelf" label="Continental shelf" />
+      <node id="Wind wave" label="Wind wave" />
+      <node id="Rip current" label="Rip current" />
+      <node id="Coastal morphodynamics" label="Coastal morphodynamics" />
+      <node id="Coral reef" label="Coral reef" />
+      <node id="Cove" label="Cove" />
+      <node id="Farallon Islands" label="Farallon Islands" />
+      <node id="Central Intelligence Agency" label="Central Intelligence Agency" />
+      <node id="Island" label="Island" />
+      <node id="Wave shoaling" label="Wave shoaling" />
+      <node id="Arctic Archipelago" label="Arctic Archipelago" />
+      <node id="Intertidal zone" label="Intertidal zone" />
+      <node id="World Islands" label="World Islands" />
+      <node id="Pacific Ocean" label="Pacific Ocean" />
+      <node id="Natural arch" label="Natural arch" />
+      <node id="Beach ridge" label="Beach ridge" />
+      <node id="Malta" label="Malta" />
+      <node id="Beachrock" label="Beachrock" />
+      <node id="Island arc" label="Island arc" />
+      <node id="Scotland" label="Scotland" />
+      <node id="Coastal management" label="Coastal management" />
+      <node id="Fetch (geography)" label="Fetch (geography)" />
+      <node id="Mudflat" label="Mudflat" />
+      <node id="Coast" label="Coast" />
+      <node id="Fjard" label="Fjard" />
+      <node id="Galápagos Islands" label="Galápagos Islands" />
+      <node id="Easter Island" label="Easter Island" />
+      <node id="Freshwater marsh" label="Freshwater marsh" />
+      <node id="Debouch" label="Debouch" />
+      <node id="Cliff" label="Cliff" />
+      <node id="Landform" label="Landform" />
+      <node id="Stack (geology)" label="Stack (geology)" />
+      <node id="Balearic Isles" label="Balearic Isles" />
+      <node id="Archipelago Sea" label="Archipelago Sea" />
+      <node id="Shoal" label="Shoal" />
+      <node id="Island chain" label="Island chain" />
+      <node id="Mergui Archipelago" label="Mergui Archipelago" />
+      <node id="Lagoon" label="Lagoon" />
+      <node id="Marker Wadden" label="Marker Wadden" />
+      <node id="River delta" label="River delta" />
+      <node id="Tied island" label="Tied island" />
+      <node id="Cape (geography)" label="Cape (geography)" />
+      <node id="Intertidal wetland" label="Intertidal wetland" />
+      <node id="Palm Islands" label="Palm Islands" />
+      <node id="Estuary" label="Estuary" />
+      <node id="Bay" label="Bay" />
+      <node id="Surge channel" label="Surge channel" />
+      <node id="Aegean Sea" label="Aegean Sea" />
+      <node id="The Bahamas" label="The Bahamas" />
+      <node id="Pocket beach" label="Pocket beach" />
+      <node id="Geo (landform)" label="Geo (landform)" />
+      <node id="Indian Ocean" label="Indian Ocean" />
+      <node id="Medieval Greek" label="Medieval Greek" />
+      <node id="Mega delta" label="Mega delta" />
+      <node id="Indonesia" label="Indonesia" />
+      <node id="Coastal plain" label="Coastal plain" />
+      <node id="Emergent coastline" label="Emergent coastline" />
+      <node id="California" label="California" />
+      <node id="Strand plain" label="Strand plain" />
+      <node id="Windwatt" label="Windwatt" />
+      <node id="Littoral zone" label="Littoral zone" />
+      <node id="Grain size" label="Grain size" />
+      <node id="Channel (geography)" label="Channel (geography)" />
+      <node id="Sea foam" label="Sea foam" />
+      <node id="Encyclopædia Britannica Eleventh Edition" label="Encyclopædia Britannica Eleventh Edition" />
+      <node id="Submergent coastline" label="Submergent coastline" />
+      <node id="Peninsula" label="Peninsula" />
+      <node id="Ria" label="Ria" />
+      <node id="Dune" label="Dune" />
+      <node id="River plume" label="River plume" />
+      <node id="Clay" label="Clay" />
+      <node id="Reef" label="Reef" />
+      <node id="Spit (landform)" label="Spit (landform)" />
+      <node id="British Isles" label="British Isles" />
+      <node id="Wave-cut platform" label="Wave-cut platform" />
+      <node id="Strait" label="Strait" />
+      <node id="Skerry" label="Skerry" />
+      <node id="Fjord" label="Fjord" />
+      <node id="Gulf" label="Gulf" />
+      <node id="Raised shoreline" label="Raised shoreline" />
+      <node id="Mouth bar" label="Mouth bar" />
+      <node id="United States" label="United States" />
+      <node id="Erosion" label="Erosion" />
+      <node id="Lakshadweep" label="Lakshadweep" />
+      <node id="Coastal geography" label="Coastal geography" />
+      <node id="Ingression coast" label="Ingression coast" />
+      <node id="Canary Islands" label="Canary Islands" />
+      <node id="Current (stream)" label="Current (stream)" />
+      <node id="Submersion (coastal management)" label="Submersion (coastal management)" />
+      <node id="Tidal marsh" label="Tidal marsh" />
+      <node id="Sea cave" label="Sea cave" />
+      <node id="Fundus (seabed)" label="Fundus (seabed)" />
+      <node id="San Juan Islands" label="San Juan Islands" />
+      <node id="Discordant coastline" label="Discordant coastline" />
+      <node id="Continental margin" label="Continental margin" />
+      <node id="Washington, DC" label="Washington, DC" />
+      <node id="Submarine canyon" label="Submarine canyon" />
+      <node id="Avulsion (river)" label="Avulsion (river)" />
+      <node id="Bulkhead line" label="Bulkhead line" />
+      <node id="Beach" label="Beach" />
+      <node id="Surf zone" label="Surf zone" />
+      <node id="Large-scale coastal behaviour" label="Large-scale coastal behaviour" />
+      <node id="Cuspate foreland" label="Cuspate foreland" />
+      <node id="Tectonic" label="Tectonic" />
+      <node id="Ayre (landform)" label="Ayre (landform)" />
+      <node id="Isthmus" label="Isthmus" />
+      <node id="Firth" label="Firth" />
+      <node id="Salt marsh" label="Salt marsh" />
+      <node id="River mouth" label="River mouth" />
+      <node id="Beaches in estuaries and bays" label="Beaches in estuaries and bays" />
+      <node id="Ancient Greek" label="Ancient Greek" />
+      <node id="Cobble (geology)" label="Cobble (geology)" />
+      <node id="Wrack zone" label="Wrack zone" />
+      <node id="Aegean Islands" label="Aegean Islands" />
+      <node id="Sand" label="Sand" />
+      <node id="Shore" label="Shore" />
+      <node id="Coastal biogeomorphology" label="Coastal biogeomorphology" />
+      <node id="Machair" label="Machair" />
+      <node id="Headland" label="Headland" />
+      <node id="Barrier island" label="Barrier island" />
+      <node id="Silt" label="Silt" />
+      <node id="Cliffed coast" label="Cliffed coast" />
+      <node id="Japanese Archipelago" label="Japanese Archipelago" />
+      <node id="Marine regression" label="Marine regression" />
+      <node id="Beach evolution" label="Beach evolution" />
+      <node id="Maldives" label="Maldives" />
+      <node id="Azores" label="Azores" />
+      <node id="Boulder" label="Boulder" />
+      <node id="Concordant coastline" label="Concordant coastline" />
+      <node id="Longshore drift" label="Longshore drift" />
+      <node id="Physical oceanography" label="Physical oceanography" />
+      <node id="Tidal island" label="Tidal island" />
+      <node id="Atoll" label="Atoll" />
+      <node id="Seashell" label="Seashell" />
+      <node id="Graded shoreline" label="Graded shoreline" />
+      <node id="Islet" label="Islet" />
+      <node id="Shetland" label="Shetland" />
+      <node id="Flat coast" label="Flat coast" />
+      <node id="Coastal erosion" label="Coastal erosion" />
+      <node id="Brackish marsh" label="Brackish marsh" />
+      <node id="Feeder bluff" label="Feeder bluff" />
+      <node id="Andaman and Nicobar Islands" label="Andaman and Nicobar Islands" />
+      <node id="Bodden" label="Bodden" />
+      <node id="Shingle beach" label="Shingle beach" />
+      <node id="Granule (geology)" label="Granule (geology)" />
+      <node id="Hawaiian Islands" label="Hawaiian Islands" />
+      <node id="Archipelago (disambiguation)" label="Archipelago (disambiguation)" />
+      <node id="Inlet" label="Inlet" />
+      <node id="Integrated coastal zone management" label="Integrated coastal zone management" />
+      <node id="Region of freshwater influence" label="Region of freshwater influence" />
+      <node id="Swash" label="Swash" />
+      <node id="Deposition (sediment)" label="Deposition (sediment)" />
+      <node id="Modern recession of beaches" label="Modern recession of beaches" />
+      <node id="Tombolo" label="Tombolo" />
+      <node id="Wash margin" label="Wash margin" />
+      <node id="Baymouth bar" label="Baymouth bar" />
+      <node id="Undertow (water waves)" label="Undertow (water waves)" />
+      <node id="Coastal waterfall" label="Coastal waterfall" />
+      <node id="British Columbia" label="British Columbia" />
+      <node id="Pebble" label="Pebble" />
+      <node id="Rocky shore" label="Rocky shore" />
+      <node id="Accretion (coastal management)" label="Accretion (coastal management)" />
+      <node id="Île Amsterdam" label="Île Amsterdam" />
+      <node id="Gat (landform)" label="Gat (landform)" />
+      <node id="A cappella" label="A cappella" />
+      <node id="Raised beach" label="Raised beach" />
+      <node id="Storm beach" label="Storm beach" />
+      <node id="Anchialine pool" label="Anchialine pool" />
+      <node id="Beach cusps" label="Beach cusps" />
+      <node id="Cliff-top dune" label="Cliff-top dune" />
+      <node id="Surf break" label="Surf break" />
+      <node id="Tide pool" label="Tide pool" />
+      <node id="Inside Passage" label="Inside Passage" />
+      <node id="Volcanic arc" label="Volcanic arc" />
+      <node id="Linguistic reconstruction" label="Linguistic reconstruction" />
+      <node id="Marine transgression" label="Marine transgression" />
+      <node id="Medieval Latin" label="Medieval Latin" />
+      <node id="Sound (geography)" label="Sound (geography)" />
+      <node id="Archipelagic state" label="Archipelagic state" />
+      <node id="Steep coast" label="Steep coast" />
+      <node id="Myanmar" label="Myanmar" />
+      <node id="Blowhole (geology)" label="Blowhole (geology)" />
+      <node id="Bight (geography)" label="Bight (geography)" />
     </nodes>
     <edges>
-      <edge id="0" source="Tom Corbett, Space Cadet" target="Flash Gordon" />
-      <edge id="1" source="Tom Corbett, Space Cadet" target="Buck Rogers" />
-      <edge id="2" source="Tom Corbett, Space Cadet" target="The Ernie Kovacs Show" />
-      <edge id="3" source="Tom Corbett, Space Cadet" target="Brains Benton" />
-      <edge id="4" source="Tom Corbett, Space Cadet" target="Television" />
-      <edge id="5" source="Tom Corbett, Space Cadet" target="Cherry Ames" />
-      <edge id="6" source="Tom Corbett, Space Cadet" target="Pep Cereal" />
-      <edge id="7" source="Tom Corbett, Space Cadet" target="Western Publishing" />
-      <edge id="8" source="Tom Corbett, Space Cadet" target="Flash Gordon's Trip to Mars" />
-      <edge id="9" source="Tom Corbett, Space Cadet" target="Chip Hilton" />
-      <edge id="10" source="Tom Corbett, Space Cadet" target="Jan Merlin" />
-      <edge id="11" source="Tom Corbett, Space Cadet" target="DuMont Television Network" />
-      <edge id="12" source="Tom Corbett, Space Cadet" target="Daily comic strip" />
-      <edge id="13" source="Tom Corbett, Space Cadet" target="Christopher Cool" />
-      <edge id="14" source="Tom Corbett, Space Cadet" target="Danny Dunn" />
-      <edge id="15" source="Tom Corbett, Space Cadet" target="Commando Cody: Sky Marshal of the Universe" />
-      <edge id="16" source="Tom Corbett, Space Cadet" target="Internet Speculative Fiction Database" />
-      <edge id="17" source="Tom Corbett, Space Cadet" target="Space Patrol (1950 TV series)" />
-      <edge id="18" source="Tom Corbett, Space Cadet" target="The Colonial Radio Theatre on the Air" />
-      <edge id="19" source="Tom Corbett, Space Cadet" target="National Broadcasting Company" />
-      <edge id="20" source="Tom Corbett, Space Cadet" target="Meg Duncan" />
-      <edge id="21" source="Tom Corbett, Space Cadet" target="Bob and Ray" />
-      <edge id="22" source="Tom Corbett, Space Cadet" target="ISBN (identifier)" />
-      <edge id="23" source="Tom Corbett, Space Cadet" target="American Broadcasting Company" />
-      <edge id="24" source="Tom Corbett, Space Cadet" target="Comic strip" />
-      <edge id="25" source="Tom Corbett, Space Cadet" target="Space opera" />
-      <edge id="26" source="Tom Corbett, Space Cadet" target="Military science fiction" />
-      <edge id="27" source="Tom Corbett, Space Cadet" target="TidalWave Productions" />
-      <edge id="28" source="Tom Corbett, Space Cadet" target="Trixie Belden" />
-      <edge id="29" source="Tom Corbett, Space Cadet" target="Frankie Thomas" />
-      <edge id="30" source="Tom Corbett, Space Cadet" target="Journey into Space" />
-      <edge id="31" source="Tom Corbett, Space Cadet" target="World Distributors" />
-      <edge id="32" source="Tom Corbett, Space Cadet" target="Planetary romance" />
-      <edge id="33" source="Tom Corbett, Space Cadet" target="Space Cadet" />
-      <edge id="34" source="Tom Corbett, Space Cadet" target="The Purple Monster Strikes" />
-      <edge id="35" source="Tom Corbett, Space Cadet" target="Paul S. Newman" />
-      <edge id="36" source="Tom Corbett, Space Cadet" target="Science fiction" />
-      <edge id="37" source="Tom Corbett, Space Cadet" target="LibriVox" />
-      <edge id="38" source="Tom Corbett, Space Cadet" target="Zombies of the Stratosphere" />
-      <edge id="39" source="Tom Corbett, Space Cadet" target="The Happy Hollisters" />
-      <edge id="40" source="Tom Corbett, Space Cadet" target="Judy Bolton Series" />
-      <edge id="41" source="Tom Corbett, Space Cadet" target="Columbia Broadcasting System" />
-      <edge id="42" source="Tom Corbett, Space Cadet" target="Eternity Comics" />
-      <edge id="43" source="Tom Corbett, Space Cadet" target="Racist" />
-      <edge id="44" source="Tom Corbett, Space Cadet" target="Willy Ley" />
-      <edge id="45" source="Tom Corbett, Space Cadet" target="Wayback Machine" />
-      <edge id="46" source="Tom Corbett, Space Cadet" target="Flash Gordon (1954 TV series)" />
-      <edge id="47" source="Tom Corbett, Space Cadet" target="Atom Squad" />
-      <edge id="48" source="Tom Corbett, Space Cadet" target="Tom Corbett" />
-      <edge id="49" source="Tom Corbett, Space Cadet" target="Playset" />
-      <edge id="50" source="Tom Corbett, Space Cadet" target="Bronc Burnett" />
-      <edge id="51" source="Tom Corbett, Space Cadet" target="Dell Comics" />
-      <edge id="52" source="Tom Corbett, Space Cadet" target="Frank Sutton" />
-      <edge id="53" source="Tom Corbett, Space Cadet" target="IMDb" />
-      <edge id="54" source="Tom Corbett, Space Cadet" target="Brick Bradford (serial)" />
-      <edge id="55" source="Tom Corbett, Space Cadet" target="Penny Parker" />
-      <edge id="56" source="Tom Corbett, Space Cadet" target="Rick Brant" />
-      <edge id="57" source="Tom Corbett, Space Cadet" target="Down You Go" />
-      <edge id="58" source="Tom Corbett, Space Cadet" target="Tom Quest" />
-      <edge id="59" source="Tom Corbett, Space Cadet" target="Biff Brewster" />
-      <edge id="60" source="Tom Corbett, Space Cadet" target="Connie Blair" />
-      <edge id="61" source="Tom Corbett, Space Cadet" target="Buck Rogers in the 25th Century (radio series)" />
-      <edge id="62" source="Tom Corbett, Space Cadet" target="Pennsylvania" />
-      <edge id="63" source="Tom Corbett, Space Cadet" target="Temple University Press" />
-      <edge id="64" source="Tom Corbett, Space Cadet" target="The Hardy Boys" />
-      <edge id="65" source="Tom Corbett, Space Cadet" target="Flash Gordon (serial)" />
-      <edge id="66" source="Tom Corbett, Space Cadet" target="Captain Z-Ro" />
-      <edge id="67" source="Tom Corbett, Space Cadet" target="Penguin Books" />
-      <edge id="68" source="Tom Corbett, Space Cadet" target="Lost Planet Airmen" />
-      <edge id="69" source="Tom Corbett, Space Cadet" target="Tom Corbett's Wonder Book of Space" />
-      <edge id="70" source="Tom Corbett, Space Cadet" target="The Original Amateur Hour" />
-      <edge id="71" source="Tom Corbett, Space Cadet" target="Tom Swift Jr." />
-      <edge id="72" source="Tom Corbett, Space Cadet" target="Flash Gordon Conquers the Universe" />
-      <edge id="73" source="Tom Corbett, Space Cadet" target="Nancy Drew" />
-      <edge id="74" source="Tom Corbett, Space Cadet" target="Standard Ebooks" />
-      <edge id="75" source="Tom Corbett, Space Cadet" target="Etsy" />
-      <edge id="76" source="Tom Corbett, Space Cadet" target="Milton Caniff" />
-      <edge id="77" source="Tom Corbett, Space Cadet" target="The Dana Girls" />
-      <edge id="78" source="Tom Corbett, Space Cadet" target="Commando Cody" />
-      <edge id="79" source="Tom Corbett, Space Cadet" target="Comic book" />
-      <edge id="80" source="Tom Corbett, Space Cadet" target="Edward Bryce" />
-      <edge id="81" source="Tom Corbett, Space Cadet" target="Kay Tracey" />
-      <edge id="82" source="Tom Corbett, Space Cadet" target="Power Boys" />
-      <edge id="83" source="Tom Corbett, Space Cadet" target="Sue Barton" />
-      <edge id="84" source="Tom Corbett, Space Cadet" target="Captain Video: Master of the Stratosphere" />
-      <edge id="85" source="Tom Corbett, Space Cadet" target="Bunkroom" />
-      <edge id="86" source="Tom Corbett, Space Cadet" target="Marcia Martin" />
-      <edge id="87" source="Tom Corbett, Space Cadet" target="Fictional character" />
-      <edge id="88" source="Tom Corbett, Space Cadet" target="Internet Archive" />
-      <edge id="89" source="Tom Corbett, Space Cadet" target="Joseph Greene (writer)" />
-      <edge id="90" source="Tom Corbett, Space Cadet" target="Orbit One Zero" />
-      <edge id="91" source="Tom Corbett, Space Cadet" target="Robert A. Heinlein" />
-      <edge id="92" source="Tom Corbett, Space Cadet" target="Orbiter X" />
-      <edge id="93" source="Tom Corbett, Space Cadet" target="Ballantine Books" />
-      <edge id="94" source="Tom Corbett, Space Cadet" target="Al Markim" />
-      <edge id="95" source="Tom Corbett, Space Cadet" target="Ken Holt" />
-      <edge id="96" source="Tom Corbett, Space Cadet" target="View-Master" />
-      <edge id="97" source="Tom Corbett, Space Cadet" target="Project Gutenberg" />
-      <edge id="98" source="Tom Corbett, Space Cadet" target="Ginny Gordon" />
-      <edge id="99" source="Tom Corbett, Space Cadet" target="PDF" />
-      <edge id="100" source="Tom Corbett, Space Cadet" target="Science fiction opera" />
-      <edge id="101" source="Tom Corbett, Space Cadet" target="Alfred Bester" />
-      <edge id="102" source="Tom Corbett, Space Cadet" target="King of the Rocket Men" />
-      <edge id="103" source="Tom Corbett, Space Cadet" target="Grosset &amp; Dunlap" />
-      <edge id="104" source="Tom Corbett, Space Cadet" target="John Fiedler" />
-      <edge id="105" source="Tom Corbett, Space Cadet" target="Buck Rogers (serial)" />
-      <edge id="106" source="Tom Corbett, Space Cadet" target="Four Color" />
-      <edge id="107" source="Tom Corbett, Space Cadet" target="Jack Grimes (actor)" />
-      <edge id="108" source="Tom Corbett, Space Cadet" target="Rocky Jones, Space Ranger" />
-      <edge id="109" source="Tom Corbett, Space Cadet" target="The Arthur Murray Party" />
-      <edge id="110" source="Tom Corbett, Space Cadet" target="Vicki Barr (novel series)" />
-      <edge id="111" source="Tom Corbett, Space Cadet" target="Pantomime Quiz" />
-      <edge id="112" source="Tom Corbett, Space Cadet" target="Radar Men from the Moon" />
-      <edge id="113" source="Tom Corbett, Space Cadet" target="Radio" />
-      <edge id="114" source="Tom Corbett, Space Cadet" target="Beverly Gray" />
-      <edge id="115" source="Tom Corbett, Space Cadet" target="Rod Brown of the Rocket Rangers" />
-      <edge id="116" source="Tom Corbett, Space Cadet" target="Ray Bailey (comics)" />
-      <edge id="117" source="Tom Corbett, Space Cadet" target="Dan Dare" />
-      <edge id="118" source="Tom Corbett, Space Cadet" target="Captain Video and His Video Rangers" />
-      <edge id="119" source="Tom Corbett, Space Cadet" target="Flying Disc Man from Mars" />
-      <edge id="120" source="Tom Corbett, Space Cadet" target="March of Comics" />
-      <edge id="121" source="Tom Corbett, Space Cadet" target="Space Command (TV series)" />
-      <edge id="122" source="Tom Corbett, Space Cadet" target="The Lost Planet" />
-      <edge id="123" source="Tom Corbett, Space Cadet" target="Prize Comics" />
+      <edge id="0" source="Archipelago" target="Regressive delta" />
+      <edge id="1" source="Archipelago" target="Hapua" />
+      <edge id="2" source="Archipelago" target="Arpeggio" />
+      <edge id="3" source="Archipelago" target="Gut (coastal geography)" />
+      <edge id="4" source="Archipelago" target="Land elevation" />
+      <edge id="5" source="Archipelago" target="Island Chain Strategy" />
+      <edge id="6" source="Archipelago" target="Classical Antiquity" />
+      <edge id="7" source="Archipelago" target="Continental shelf" />
+      <edge id="8" source="Archipelago" target="Wind wave" />
+      <edge id="9" source="Archipelago" target="Rip current" />
+      <edge id="10" source="Archipelago" target="Coastal morphodynamics" />
+      <edge id="11" source="Archipelago" target="Coral reef" />
+      <edge id="12" source="Archipelago" target="Cove" />
+      <edge id="13" source="Archipelago" target="Farallon Islands" />
+      <edge id="14" source="Archipelago" target="Central Intelligence Agency" />
+      <edge id="15" source="Archipelago" target="Island" />
+      <edge id="16" source="Archipelago" target="Wave shoaling" />
+      <edge id="17" source="Archipelago" target="Arctic Archipelago" />
+      <edge id="18" source="Archipelago" target="Intertidal zone" />
+      <edge id="19" source="Archipelago" target="World Islands" />
+      <edge id="20" source="Archipelago" target="Pacific Ocean" />
+      <edge id="21" source="Archipelago" target="Natural arch" />
+      <edge id="22" source="Archipelago" target="Beach ridge" />
+      <edge id="23" source="Archipelago" target="Malta" />
+      <edge id="24" source="Archipelago" target="Beachrock" />
+      <edge id="25" source="Archipelago" target="Island arc" />
+      <edge id="26" source="Archipelago" target="Scotland" />
+      <edge id="27" source="Archipelago" target="Coastal management" />
+      <edge id="28" source="Archipelago" target="Fetch (geography)" />
+      <edge id="29" source="Archipelago" target="Mudflat" />
+      <edge id="30" source="Archipelago" target="Coast" />
+      <edge id="31" source="Archipelago" target="Fjard" />
+      <edge id="32" source="Archipelago" target="Galápagos Islands" />
+      <edge id="33" source="Archipelago" target="Easter Island" />
+      <edge id="34" source="Archipelago" target="Freshwater marsh" />
+      <edge id="35" source="Archipelago" target="Debouch" />
+      <edge id="36" source="Archipelago" target="Cliff" />
+      <edge id="37" source="Archipelago" target="Landform" />
+      <edge id="38" source="Archipelago" target="Stack (geology)" />
+      <edge id="39" source="Archipelago" target="Balearic Isles" />
+      <edge id="40" source="Archipelago" target="Archipelago Sea" />
+      <edge id="41" source="Archipelago" target="Shoal" />
+      <edge id="42" source="Archipelago" target="Island chain" />
+      <edge id="43" source="Archipelago" target="Mergui Archipelago" />
+      <edge id="44" source="Archipelago" target="Lagoon" />
+      <edge id="45" source="Archipelago" target="Marker Wadden" />
+      <edge id="46" source="Archipelago" target="River delta" />
+      <edge id="47" source="Archipelago" target="Tied island" />
+      <edge id="48" source="Archipelago" target="Cape (geography)" />
+      <edge id="49" source="Archipelago" target="Intertidal wetland" />
+      <edge id="50" source="Archipelago" target="Palm Islands" />
+      <edge id="51" source="Archipelago" target="Estuary" />
+      <edge id="52" source="Archipelago" target="Bay" />
+      <edge id="53" source="Archipelago" target="Surge channel" />
+      <edge id="54" source="Archipelago" target="Aegean Sea" />
+      <edge id="55" source="Archipelago" target="The Bahamas" />
+      <edge id="56" source="Archipelago" target="Pocket beach" />
+      <edge id="57" source="Archipelago" target="Geo (landform)" />
+      <edge id="58" source="Archipelago" target="Indian Ocean" />
+      <edge id="59" source="Archipelago" target="Medieval Greek" />
+      <edge id="60" source="Archipelago" target="Mega delta" />
+      <edge id="61" source="Archipelago" target="Indonesia" />
+      <edge id="62" source="Archipelago" target="Coastal plain" />
+      <edge id="63" source="Archipelago" target="Emergent coastline" />
+      <edge id="64" source="Archipelago" target="California" />
+      <edge id="65" source="Archipelago" target="Strand plain" />
+      <edge id="66" source="Archipelago" target="Windwatt" />
+      <edge id="67" source="Archipelago" target="Littoral zone" />
+      <edge id="68" source="Archipelago" target="Grain size" />
+      <edge id="69" source="Archipelago" target="Channel (geography)" />
+      <edge id="70" source="Archipelago" target="Sea foam" />
+      <edge id="71" source="Archipelago" target="Encyclopædia Britannica Eleventh Edition" />
+      <edge id="72" source="Archipelago" target="Submergent coastline" />
+      <edge id="73" source="Archipelago" target="Peninsula" />
+      <edge id="74" source="Archipelago" target="Ria" />
+      <edge id="75" source="Archipelago" target="Dune" />
+      <edge id="76" source="Archipelago" target="River plume" />
+      <edge id="77" source="Archipelago" target="Clay" />
+      <edge id="78" source="Archipelago" target="Reef" />
+      <edge id="79" source="Archipelago" target="Spit (landform)" />
+      <edge id="80" source="Archipelago" target="British Isles" />
+      <edge id="81" source="Archipelago" target="Wave-cut platform" />
+      <edge id="82" source="Archipelago" target="Strait" />
+      <edge id="83" source="Archipelago" target="Skerry" />
+      <edge id="84" source="Archipelago" target="Fjord" />
+      <edge id="85" source="Archipelago" target="Gulf" />
+      <edge id="86" source="Archipelago" target="Raised shoreline" />
+      <edge id="87" source="Archipelago" target="Mouth bar" />
+      <edge id="88" source="Archipelago" target="United States" />
+      <edge id="89" source="Archipelago" target="Erosion" />
+      <edge id="90" source="Archipelago" target="Lakshadweep" />
+      <edge id="91" source="Archipelago" target="Coastal geography" />
+      <edge id="92" source="Archipelago" target="Ingression coast" />
+      <edge id="93" source="Archipelago" target="Canary Islands" />
+      <edge id="94" source="Archipelago" target="Current (stream)" />
+      <edge id="95" source="Archipelago" target="Submersion (coastal management)" />
+      <edge id="96" source="Archipelago" target="Tidal marsh" />
+      <edge id="97" source="Archipelago" target="Sea cave" />
+      <edge id="98" source="Archipelago" target="Fundus (seabed)" />
+      <edge id="99" source="Archipelago" target="San Juan Islands" />
+      <edge id="100" source="Archipelago" target="Discordant coastline" />
+      <edge id="101" source="Archipelago" target="Continental margin" />
+      <edge id="102" source="Archipelago" target="Washington, DC" />
+      <edge id="103" source="Archipelago" target="Submarine canyon" />
+      <edge id="104" source="Archipelago" target="Avulsion (river)" />
+      <edge id="105" source="Archipelago" target="Bulkhead line" />
+      <edge id="106" source="Archipelago" target="Beach" />
+      <edge id="107" source="Archipelago" target="Surf zone" />
+      <edge id="108" source="Archipelago" target="Large-scale coastal behaviour" />
+      <edge id="109" source="Archipelago" target="Cuspate foreland" />
+      <edge id="110" source="Archipelago" target="Tectonic" />
+      <edge id="111" source="Archipelago" target="Ayre (landform)" />
+      <edge id="112" source="Archipelago" target="Isthmus" />
+      <edge id="113" source="Archipelago" target="Firth" />
+      <edge id="114" source="Archipelago" target="Salt marsh" />
+      <edge id="115" source="Archipelago" target="River mouth" />
+      <edge id="116" source="Archipelago" target="Beaches in estuaries and bays" />
+      <edge id="117" source="Archipelago" target="Ancient Greek" />
+      <edge id="118" source="Archipelago" target="Cobble (geology)" />
+      <edge id="119" source="Archipelago" target="Wrack zone" />
+      <edge id="120" source="Archipelago" target="Aegean Islands" />
+      <edge id="121" source="Archipelago" target="Sand" />
+      <edge id="122" source="Archipelago" target="Shore" />
+      <edge id="123" source="Archipelago" target="Coastal biogeomorphology" />
+      <edge id="124" source="Archipelago" target="Machair" />
+      <edge id="125" source="Archipelago" target="Headland" />
+      <edge id="126" source="Archipelago" target="Barrier island" />
+      <edge id="127" source="Archipelago" target="Silt" />
+      <edge id="128" source="Archipelago" target="Cliffed coast" />
+      <edge id="129" source="Archipelago" target="Japanese Archipelago" />
+      <edge id="130" source="Archipelago" target="Marine regression" />
+      <edge id="131" source="Archipelago" target="Beach evolution" />
+      <edge id="132" source="Archipelago" target="Maldives" />
+      <edge id="133" source="Archipelago" target="Azores" />
+      <edge id="134" source="Archipelago" target="Boulder" />
+      <edge id="135" source="Archipelago" target="Concordant coastline" />
+      <edge id="136" source="Archipelago" target="Longshore drift" />
+      <edge id="137" source="Archipelago" target="Physical oceanography" />
+      <edge id="138" source="Archipelago" target="Tidal island" />
+      <edge id="139" source="Archipelago" target="Atoll" />
+      <edge id="140" source="Archipelago" target="Seashell" />
+      <edge id="141" source="Archipelago" target="Graded shoreline" />
+      <edge id="142" source="Archipelago" target="Islet" />
+      <edge id="143" source="Archipelago" target="Shetland" />
+      <edge id="144" source="Archipelago" target="Flat coast" />
+      <edge id="145" source="Archipelago" target="Coastal erosion" />
+      <edge id="146" source="Archipelago" target="Brackish marsh" />
+      <edge id="147" source="Archipelago" target="Feeder bluff" />
+      <edge id="148" source="Archipelago" target="Andaman and Nicobar Islands" />
+      <edge id="149" source="Archipelago" target="Bodden" />
+      <edge id="150" source="Archipelago" target="Shingle beach" />
+      <edge id="151" source="Archipelago" target="Granule (geology)" />
+      <edge id="152" source="Archipelago" target="Hawaiian Islands" />
+      <edge id="153" source="Archipelago" target="Archipelago (disambiguation)" />
+      <edge id="154" source="Archipelago" target="Inlet" />
+      <edge id="155" source="Archipelago" target="Integrated coastal zone management" />
+      <edge id="156" source="Archipelago" target="Region of freshwater influence" />
+      <edge id="157" source="Archipelago" target="Swash" />
+      <edge id="158" source="Archipelago" target="Deposition (sediment)" />
+      <edge id="159" source="Archipelago" target="Modern recession of beaches" />
+      <edge id="160" source="Archipelago" target="Tombolo" />
+      <edge id="161" source="Archipelago" target="Wash margin" />
+      <edge id="162" source="Archipelago" target="Baymouth bar" />
+      <edge id="163" source="Archipelago" target="Undertow (water waves)" />
+      <edge id="164" source="Archipelago" target="Coastal waterfall" />
+      <edge id="165" source="Archipelago" target="British Columbia" />
+      <edge id="166" source="Archipelago" target="Pebble" />
+      <edge id="167" source="Archipelago" target="Rocky shore" />
+      <edge id="168" source="Archipelago" target="Accretion (coastal management)" />
+      <edge id="169" source="Archipelago" target="Île Amsterdam" />
+      <edge id="170" source="Archipelago" target="Gat (landform)" />
+      <edge id="171" source="Archipelago" target="A cappella" />
+      <edge id="172" source="Archipelago" target="Raised beach" />
+      <edge id="173" source="Archipelago" target="Storm beach" />
+      <edge id="174" source="Archipelago" target="Anchialine pool" />
+      <edge id="175" source="Archipelago" target="Beach cusps" />
+      <edge id="176" source="Archipelago" target="Cliff-top dune" />
+      <edge id="177" source="Archipelago" target="Surf break" />
+      <edge id="178" source="Archipelago" target="Tide pool" />
+      <edge id="179" source="Archipelago" target="Inside Passage" />
+      <edge id="180" source="Archipelago" target="Volcanic arc" />
+      <edge id="181" source="Archipelago" target="Linguistic reconstruction" />
+      <edge id="182" source="Archipelago" target="Marine transgression" />
+      <edge id="183" source="Archipelago" target="Medieval Latin" />
+      <edge id="184" source="Archipelago" target="Sound (geography)" />
+      <edge id="185" source="Archipelago" target="Archipelagic state" />
+      <edge id="186" source="Archipelago" target="Steep coast" />
+      <edge id="187" source="Archipelago" target="Myanmar" />
+      <edge id="188" source="Archipelago" target="Blowhole (geology)" />
+      <edge id="189" source="Archipelago" target="Bight (geography)" />
     </edges>
   </graph>
 </gexf>

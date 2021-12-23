@@ -162,6 +162,11 @@ def extract(self_title, continue_token=0):
     return extract(self_title, continue_token)
 
 
+def second_run():
+    for link in db:
+        extract(link)
+        
+
 def write_to_gexf(output_location):
     print('✏️  - Writing to .GEXF format...')
     global db 
@@ -172,7 +177,6 @@ def write_to_gexf(output_location):
         for value in db[entry]:
             in_memory_tuples.append((entry, value))
 
-
     G = nx.DiGraph()
     G.add_edges_from(in_memory_tuples)
     nx.write_gexf(G, output_location, encoding='utf-8', version='1.1draft')
@@ -180,6 +184,7 @@ def write_to_gexf(output_location):
 
 
 if __name__ == "__main__":
+    
     extract(args.start_title)
 
     if args.write_to:
