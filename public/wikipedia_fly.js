@@ -1,7 +1,11 @@
-import * as THREE from "https://cdn.skypack.dev/three";
+// import * as THREE from "https://cdn.skypack.dev/three";
+import * as THREE from '/modules/three.module.js';
 import { PointerLockControls } from "/modules/PointerLockControls.js";
 import { FontLoader } from '/modules/FontLoader.js';
 import { CSS3DRenderer, CSS3DObject } from "/modules/CSS3DRenderer.js";
+import { GUI } from "/modules/dat.gui.module.js";
+
+
 
 let camera, scene, renderer, controls;
 const objects = [];
@@ -39,6 +43,18 @@ let gridHelper
 let sendmouse
 let frameIndex
 var socket;
+
+// var flyRelease = 10
+// var flySpeed = 400
+var flyParams = {
+    flySpeed: 400,
+    flyRelease: 10
+}
+
+var graphParams = {
+    nodeCount: 25,
+    edgeCount: 100,
+}
 
 init();
 animate();
@@ -181,10 +197,12 @@ function init() {
                     //console.log(intersects)
                     let not_found = true;
                     intersects.forEach(element => {
-                        if (element.object.type == "Mesh" && not_found) {
+                        console.log(element.object.userData)
+                        if (element.object.userData) {
                             not_found = false;
                             console.log("Raycast found Label, ", element)
                             console.log("Raycase found label.userdata.url", element.object.userData.url)
+                        
                             iFrame = createFrame("Sunshine_Policy",
                                 camera.position.x + cameraLookDir(camera).x,
                                 camera.position.y + cameraLookDir(camera).y,
@@ -272,7 +290,7 @@ function init() {
 
                         loader.load(FONT_TYPEFACE, function (font) {
                             try {
-                                for (let i = 0; i <= DATA.nodes.length; i += 1) {
+                                for (let i = 0; i <= Math.min(DATA.nodes.length,graphParams.nodeCount); i += 1) {
                                     let label = DATA.nodes[i]['label']
                                     
                                     let size = .4//DATA.nodes[i]['attributes']['importance']//.2
@@ -280,9 +298,9 @@ function init() {
                                     let y = graph_config['origin'][1] + DATA.nodes[i]['y'] / SCALE
                                     let z = 1//let z = graph_config['origin'][2] + DATA.nodes[i]['z'] / SCALE
                                     // let z = DATA.nodes[i]['z'] / SCALE
-                                    let userData = { url: "Sunshine_Policy" }
+                                    let url = { url: label}
 
-                                    labelPlot(font, label, size, x, y, z, { url: "Sunshine_Policy" })
+                                    labelPlot(font, label, size, x, y, z, url)
                                 }
                             } catch {
                                 console.log('Error, unable to load label (probably an out of bounds error)')
@@ -307,6 +325,8 @@ function init() {
 
     }
     populate(CONFIG_FP)
+
+
 
     //Custom Shader
     let uniforms = {
@@ -333,7 +353,7 @@ function init() {
         const colors = [];
         const sizes = [];
         const geometry = new THREE.BufferGeometry();
-        for (let i = 0; i <= DATA.nodes.length; i += 1) {
+        for (let i = 0; i <= Math.min(DATA.nodes.length,graphParams.nodeCount); i += 1) {
             try {
                 //Push Node XY Data
                 let _x = graph_config['origin'][0] + DATA.nodes[i]['x'] / SCALE
@@ -380,7 +400,7 @@ function init() {
     let edgePlot = function (DATA, graph_config) {
 
         const points = [];
-        for (let i = 0; i <= DATA.edges.length; i += 1) {
+        for (let i = 0; i <= Math.min(DATA.edges.length,graphParams.edgeCount); i += 1) {
             // console.log(db[DATA.edges[i]['source']])
             try {
                 points.push(
@@ -604,7 +624,30 @@ function init() {
 
 
 
+        
+    /**
+     * GUI
+     */
+    let gui = new GUI()
+    const cameraFolder = gui.addFolder('Camera')
+    cameraFolder.add(camera.position, 'x', 0, 15)
+    cameraFolder.add(camera.position, 'y', 0, 15)
+    cameraFolder.add(camera.position, 'z', 0, 15)
+    // cameraFolder.open()
+    
+    const flyControls = gui.addFolder('Fly Controls')
+    flyControls.add(flyParams, 'flySpeed', 10, 2000)
+    flyControls.add(flyParams, 'flyRelease', 1, 30)
+   
+    const graphControls = gui.addFolder('Graph Controls')
+    graphControls.add(graphParams, 'nodeCount', 1, 10000).onFinishChange(() =>{
+        console.log('CHANGING')
+        scene.clear()
+        populate(CONFIG_FP)
 
+    })
+    graphControls.add(graphParams, 'edgeCount', 1, 200000)
+  
     //Zoom
     window.addEventListener('wheel', (event) => {
         event.preventDefault(); /// prevent scrolling
@@ -659,19 +702,19 @@ function animate() {
 
         const delta = (time - prevTime) / 1000;
 
-        velocity.x -= velocity.x * 10.0 * delta;
-        velocity.z -= velocity.z * 10.0 * delta;
+        velocity.x -= velocity.x * flyParams.flyRelease * delta;
+        velocity.z -= velocity.z * flyParams.flyRelease * delta;
 
-        velocity.y -= GRAVITY * velocity.y * 10.0 * delta; // 100.0 = mass
+        velocity.y -= GRAVITY * velocity.y * flyParams.flyRelease * delta; // 100.0 = mass
 
         direction.z = Number(moveForward) - Number(moveBackward);
         direction.x = Number(moveRight) - Number(moveLeft);
         direction.y = Number(moveUp) - Number(moveDown);
         direction.normalize(); // this ensures consistent movements in all directions
 
-        if (moveForward || moveBackward) velocity.z -= direction.z * 400.0 * delta;
-        if (moveLeft || moveRight) velocity.x -= direction.x * 400.0 * delta;
-        if (moveUp || moveDown) velocity.y -= direction.y * 400.0 * delta;
+        if (moveForward || moveBackward) velocity.z -= direction.z * flyParams.flySpeed * delta;
+        if (moveLeft || moveRight) velocity.x -= direction.x * flyParams.flySpeed * delta;
+        if (moveUp || moveDown) velocity.y -= direction.y * flyParams.flySpeed * delta;
 
         controls.moveRight(- velocity.x * delta);
         controls.moveForward(- velocity.z * delta);

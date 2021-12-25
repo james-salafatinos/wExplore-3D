@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.1draft http://www.gexf.net/1.1draft/gexf.xsd">
+  <meta lastmodifieddate="2021-12-23">
+    <creator>NetworkX 2.6.3</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <nodes>
+      <node id="Tom Corbett, Space Cadet" label="Tom Corbett, Space Cadet" />
+      <node id="Internet Archive" label="Internet Archive" />
+      <node id="Penny Parker" label="Penny Parker" />
+      <node id="Frank Sutton" label="Frank Sutton" />
+      <node id="Zombies of the Stratosphere" label="Zombies of the Stratosphere" />
+      <node id="Pep Cereal" label="Pep Cereal" />
+      <node id="Tom Corbett" label="Tom Corbett" />
+      <node id="Racist" label="Racist" />
+      <node id="Comic strip" label="Comic strip" />
+      <node id="Willy Ley" label="Willy Ley" />
+      <node id="Captain Video: Master of the Stratosphere" label="Captain Video: Master of the Stratosphere" />
+      <node id="ISBN (identifier)" label="ISBN (identifier)" />
+      <node id="Milton Caniff" label="Milton Caniff" />
+      <node id="Four Color" label="Four Color" />
+      <node id="Space Cadet" label="Space Cadet" />
+      <node id="Rick Brant" label="Rick Brant" />
+      <node id="Flying Disc Man from Mars" label="Flying Disc Man from Mars" />
+      <node id="Flash Gordon Conquers the Universe" label="Flash Gordon Conquers the Universe" />
+      <node id="Jan Merlin" label="Jan Merlin" />
+      <node id="Radio" label="Radio" />
+      <node id="Ken Holt" label="Ken Holt" />
+      <node id="Fictional character" label="Fictional character" />
+      <node id="Brains Benton" label="Brains Benton" />
+      <node id="Wayback Machine" label="Wayback Machine" />
+      <node id="Ray Bailey (comics)" label="Ray Bailey (comics)" />
+      <node id="Planetary romance" label="Planetary romance" />
+      <node id="Ginny Gordon" label="Ginny Gordon" />
+      <node id="Flash Gordon (1954 TV series)" label="Flash Gordon (1954 TV series)" />
+      <node id="DuMont Television Network" label="DuMont Television Network" />
+      <node id="Rocky Jones, Space Ranger" label="Rocky Jones, Space Ranger" />
+      <node id="Ballantine Books" label="Ballantine Books" />
+      <node id="Prize Comics" label="Prize Comics" />
+      <node id="Dan Dare" label="Dan Dare" />
+      <node id="Flash Gordon's Trip to Mars" label="Flash Gordon's Trip to Mars" />
+      <node id="Eternity Comics" label="Eternity Comics" />
+      <node id="Beverly Gray" label="Beverly Gray" />
+      <node id="Jack Grimes (actor)" label="Jack Grimes (actor)" />
+      <node id="Space Command (TV series)" label="Space Command (TV series)" />
+      <node id="National Broadcasting Company" label="National Broadcasting Company" />
+      <node id="Comic book" label="Comic book" />
+      <node id="Orbiter X" label="Orbiter X" />
+      <node id="Buck Rogers in the 25th Century (radio series)" label="Buck Rogers in the 25th Century (radio series)" />
+      <node id="Sue Barton" label="Sue Barton" />
+      <node id="Journey into Space" label="Journey into Space" />
+      <node id="John Fiedler" label="John Fiedler" />
+      <node id="IMDb" label="IMDb" />
+      <node id="LibriVox" label="LibriVox" />
+      <node id="Paul S. Newman" label="Paul S. Newman" />
+      <node id="The Ernie Kovacs Show" label="The Ernie Kovacs Show" />
+      <node id="View-Master" label="View-Master" />
+      <node id="The Happy Hollisters" label="The Happy Hollisters" />
+      <node id="Cherry Ames" label="Cherry Ames" />
+      <node id="Space Patrol (1950 TV series)" label="Space Patrol (1950 TV series)" />
+      <node id="Marcia Martin" label="Marcia Martin" />
+      <node id="Buck Rogers (serial)" label="Buck Rogers (serial)" />
+      <node id="World Distributors" label="World Distributors" />
+      <node id="Alfred Bester" label="Alfred Bester" />
+      <node id="Christopher Cool" label="Christopher Cool" />
+      <node id="Edward Bryce" label="Edward Bryce" />
+      <node id="American Broadcasting Company" label="American Broadcasting Company" />
+      <node id="Flash Gordon (serial)" label="Flash Gordon (serial)" />
+      <node id="Bronc Burnett" label="Bronc Burnett" />
+      <node id="Dell Comics" label="Dell Comics" />
+      <node id="Tom Corbett's Wonder Book of Space" label="Tom Corbett's Wonder Book of Space" />
+      <node id="Vicki Barr (novel series)" label="Vicki Barr (novel series)" />
+      <node id="Science fiction" label="Science fiction" />
+      <node id="Daily comic strip" label="Daily comic strip" />
+      <node id="The Purple Monster Strikes" label="The Purple Monster Strikes" />
+      <node id="Pantomime Quiz" label="Pantomime Quiz" />
+      <node id="Down You Go" label="Down You Go" />
+      <node id="Commando Cody: Sky Marshal of the Universe" label="Commando Cody: Sky Marshal of the Universe" />
+      <node id="Etsy" label="Etsy" />
+      <node id="The Lost Planet" label="The Lost Planet" />
+      <node id="PDF" label="PDF" />
+      <node id="The Arthur Murray Party" label="The Arthur Murray Party" />
+      <node id="Buck Rogers" label="Buck Rogers" />
+      <node id="Power Boys" label="Power Boys" />
+      <node id="Science fiction opera" label="Science fiction opera" />
+      <node id="Radar Men from the Moon" label="Radar Men from the Moon" />
+      <node id="Atom Squad" label="Atom Squad" />
+      <node id="TidalWave Productions" label="TidalWave Productions" />
+      <node id="Pennsylvania" label="Pennsylvania" />
+      <node id="The Dana Girls" label="The Dana Girls" />
+      <node id="Chip Hilton" label="Chip Hilton" />
+      <node id="Trixie Belden" label="Trixie Belden" />
+      <node id="Robert A. Heinlein" label="Robert A. Heinlein" />
+      <node id="Standard Ebooks" label="Standard Ebooks" />
+      <node id="Flash Gordon" label="Flash Gordon" />
+      <node id="Orbit One Zero" label="Orbit One Zero" />
+      <node id="Temple University Press" label="Temple University Press" />
+      <node id="March of Comics" label="March of Comics" />
+      <node id="Playset" label="Playset" />
+      <node id="Internet Speculative Fiction Database" label="Internet Speculative Fiction Database" />
+      <node id="Joseph Greene (writer)" label="Joseph Greene (writer)" />
+      <node id="Tom Swift Jr." label="Tom Swift Jr." />
+      <node id="Bob and Ray" label="Bob and Ray" />
+      <node id="Penguin Books" label="Penguin Books" />
+      <node id="Brick Bradford (serial)" label="Brick Bradford (serial)" />
+      <node id="The Hardy Boys" label="The Hardy Boys" />
+      <node id="Biff Brewster" label="Biff Brewster" />
+      <node id="The Original Amateur Hour" label="The Original Amateur Hour" />
+      <node id="Captain Z-Ro" label="Captain Z-Ro" />
+      <node id="The Colonial Radio Theatre on the Air" label="The Colonial Radio Theatre on the Air" />
+      <node id="Captain Video and His Video Rangers" label="Captain Video and His Video Rangers" />
+      <node id="Bunkroom" label="Bunkroom" />
+      <node id="Meg Duncan" label="Meg Duncan" />
+      <node id="Judy Bolton Series" label="Judy Bolton Series" />
+      <node id="Space opera" label="Space opera" />
+      <node id="Connie Blair" label="Connie Blair" />
+      <node id="Tom Quest" label="Tom Quest" />
+      <node id="Al Markim" label="Al Markim" />
+      <node id="Kay Tracey" label="Kay Tracey" />
+      <node id="Nancy Drew" label="Nancy Drew" />
+      <node id="Lost Planet Airmen" label="Lost Planet Airmen" />
+      <node id="Military science fiction" label="Military science fiction" />
+      <node id="Western Publishing" label="Western Publishing" />
+      <node id="Columbia Broadcasting System" label="Columbia Broadcasting System" />
+      <node id="Grosset &amp; Dunlap" label="Grosset &amp; Dunlap" />
+      <node id="Project Gutenberg" label="Project Gutenberg" />
+      <node id="Rod Brown of the Rocket Rangers" label="Rod Brown of the Rocket Rangers" />
+      <node id="Television" label="Television" />
+      <node id="King of the Rocket Men" label="King of the Rocket Men" />
+      <node id="Frankie Thomas" label="Frankie Thomas" />
+      <node id="Commando Cody" label="Commando Cody" />
+      <node id="Danny Dunn" label="Danny Dunn" />
+    </nodes>
+    <edges>
+      <edge id="0" source="Tom Corbett, Space Cadet" target="Internet Archive" />
+      <edge id="1" source="Tom Corbett, Space Cadet" target="Penny Parker" />
+      <edge id="2" source="Tom Corbett, Space Cadet" target="Frank Sutton" />
+      <edge id="3" source="Tom Corbett, Space Cadet" target="Zombies of the Stratosphere" />
+      <edge id="4" source="Tom Corbett, Space Cadet" target="Pep Cereal" />
+      <edge id="5" source="Tom Corbett, Space Cadet" target="Tom Corbett" />
+      <edge id="6" source="Tom Corbett, Space Cadet" target="Racist" />
+      <edge id="7" source="Tom Corbett, Space Cadet" target="Comic strip" />
+      <edge id="8" source="Tom Corbett, Space Cadet" target="Willy Ley" />
+      <edge id="9" source="Tom Corbett, Space Cadet" target="Captain Video: Master of the Stratosphere" />
+      <edge id="10" source="Tom Corbett, Space Cadet" target="ISBN (identifier)" />
+      <edge id="11" source="Tom Corbett, Space Cadet" target="Milton Caniff" />
+      <edge id="12" source="Tom Corbett, Space Cadet" target="Four Color" />
+      <edge id="13" source="Tom Corbett, Space Cadet" target="Space Cadet" />
+      <edge id="14" source="Tom Corbett, Space Cadet" target="Rick Brant" />
+      <edge id="15" source="Tom Corbett, Space Cadet" target="Flying Disc Man from Mars" />
+      <edge id="16" source="Tom Corbett, Space Cadet" target="Flash Gordon Conquers the Universe" />
+      <edge id="17" source="Tom Corbett, Space Cadet" target="Jan Merlin" />
+      <edge id="18" source="Tom Corbett, Space Cadet" target="Radio" />
+      <edge id="19" source="Tom Corbett, Space Cadet" target="Ken Holt" />
+      <edge id="20" source="Tom Corbett, Space Cadet" target="Fictional character" />
+      <edge id="21" source="Tom Corbett, Space Cadet" target="Brains Benton" />
+      <edge id="22" source="Tom Corbett, Space Cadet" target="Wayback Machine" />
+      <edge id="23" source="Tom Corbett, Space Cadet" target="Ray Bailey (comics)" />
+      <edge id="24" source="Tom Corbett, Space Cadet" target="Planetary romance" />
+      <edge id="25" source="Tom Corbett, Space Cadet" target="Ginny Gordon" />
+      <edge id="26" source="Tom Corbett, Space Cadet" target="Flash Gordon (1954 TV series)" />
+      <edge id="27" source="Tom Corbett, Space Cadet" target="DuMont Television Network" />
+      <edge id="28" source="Tom Corbett, Space Cadet" target="Rocky Jones, Space Ranger" />
+      <edge id="29" source="Tom Corbett, Space Cadet" target="Ballantine Books" />
+      <edge id="30" source="Tom Corbett, Space Cadet" target="Prize Comics" />
+      <edge id="31" source="Tom Corbett, Space Cadet" target="Dan Dare" />
+      <edge id="32" source="Tom Corbett, Space Cadet" target="Flash Gordon's Trip to Mars" />
+      <edge id="33" source="Tom Corbett, Space Cadet" target="Eternity Comics" />
+      <edge id="34" source="Tom Corbett, Space Cadet" target="Beverly Gray" />
+      <edge id="35" source="Tom Corbett, Space Cadet" target="Jack Grimes (actor)" />
+      <edge id="36" source="Tom Corbett, Space Cadet" target="Space Command (TV series)" />
+      <edge id="37" source="Tom Corbett, Space Cadet" target="National Broadcasting Company" />
+      <edge id="38" source="Tom Corbett, Space Cadet" target="Comic book" />
+      <edge id="39" source="Tom Corbett, Space Cadet" target="Orbiter X" />
+      <edge id="40" source="Tom Corbett, Space Cadet" target="Buck Rogers in the 25th Century (radio series)" />
+      <edge id="41" source="Tom Corbett, Space Cadet" target="Sue Barton" />
+      <edge id="42" source="Tom Corbett, Space Cadet" target="Journey into Space" />
+      <edge id="43" source="Tom Corbett, Space Cadet" target="John Fiedler" />
+      <edge id="44" source="Tom Corbett, Space Cadet" target="IMDb" />
+      <edge id="45" source="Tom Corbett, Space Cadet" target="LibriVox" />
+      <edge id="46" source="Tom Corbett, Space Cadet" target="Paul S. Newman" />
+      <edge id="47" source="Tom Corbett, Space Cadet" target="The Ernie Kovacs Show" />
+      <edge id="48" source="Tom Corbett, Space Cadet" target="View-Master" />
+      <edge id="49" source="Tom Corbett, Space Cadet" target="The Happy Hollisters" />
+      <edge id="50" source="Tom Corbett, Space Cadet" target="Cherry Ames" />
+      <edge id="51" source="Tom Corbett, Space Cadet" target="Space Patrol (1950 TV series)" />
+      <edge id="52" source="Tom Corbett, Space Cadet" target="Marcia Martin" />
+      <edge id="53" source="Tom Corbett, Space Cadet" target="Buck Rogers (serial)" />
+      <edge id="54" source="Tom Corbett, Space Cadet" target="World Distributors" />
+      <edge id="55" source="Tom Corbett, Space Cadet" target="Alfred Bester" />
+      <edge id="56" source="Tom Corbett, Space Cadet" target="Christopher Cool" />
+      <edge id="57" source="Tom Corbett, Space Cadet" target="Edward Bryce" />
+      <edge id="58" source="Tom Corbett, Space Cadet" target="American Broadcasting Company" />
+      <edge id="59" source="Tom Corbett, Space Cadet" target="Flash Gordon (serial)" />
+      <edge id="60" source="Tom Corbett, Space Cadet" target="Bronc Burnett" />
+      <edge id="61" source="Tom Corbett, Space Cadet" target="Dell Comics" />
+      <edge id="62" source="Tom Corbett, Space Cadet" target="Tom Corbett's Wonder Book of Space" />
+      <edge id="63" source="Tom Corbett, Space Cadet" target="Vicki Barr (novel series)" />
+      <edge id="64" source="Tom Corbett, Space Cadet" target="Science fiction" />
+      <edge id="65" source="Tom Corbett, Space Cadet" target="Daily comic strip" />
+      <edge id="66" source="Tom Corbett, Space Cadet" target="The Purple Monster Strikes" />
+      <edge id="67" source="Tom Corbett, Space Cadet" target="Pantomime Quiz" />
+      <edge id="68" source="Tom Corbett, Space Cadet" target="Down You Go" />
+      <edge id="69" source="Tom Corbett, Space Cadet" target="Commando Cody: Sky Marshal of the Universe" />
+      <edge id="70" source="Tom Corbett, Space Cadet" target="Etsy" />
+      <edge id="71" source="Tom Corbett, Space Cadet" target="The Lost Planet" />
+      <edge id="72" source="Tom Corbett, Space Cadet" target="PDF" />
+      <edge id="73" source="Tom Corbett, Space Cadet" target="The Arthur Murray Party" />
+      <edge id="74" source="Tom Corbett, Space Cadet" target="Buck Rogers" />
+      <edge id="75" source="Tom Corbett, Space Cadet" target="Power Boys" />
+      <edge id="76" source="Tom Corbett, Space Cadet" target="Science fiction opera" />
+      <edge id="77" source="Tom Corbett, Space Cadet" target="Radar Men from the Moon" />
+      <edge id="78" source="Tom Corbett, Space Cadet" target="Atom Squad" />
+      <edge id="79" source="Tom Corbett, Space Cadet" target="TidalWave Productions" />
+      <edge id="80" source="Tom Corbett, Space Cadet" target="Pennsylvania" />
+      <edge id="81" source="Tom Corbett, Space Cadet" target="The Dana Girls" />
+      <edge id="82" source="Tom Corbett, Space Cadet" target="Chip Hilton" />
+      <edge id="83" source="Tom Corbett, Space Cadet" target="Trixie Belden" />
+      <edge id="84" source="Tom Corbett, Space Cadet" target="Robert A. Heinlein" />
+      <edge id="85" source="Tom Corbett, Space Cadet" target="Standard Ebooks" />
+      <edge id="86" source="Tom Corbett, Space Cadet" target="Flash Gordon" />
+      <edge id="87" source="Tom Corbett, Space Cadet" target="Orbit One Zero" />
+      <edge id="88" source="Tom Corbett, Space Cadet" target="Temple University Press" />
+      <edge id="89" source="Tom Corbett, Space Cadet" target="March of Comics" />
+      <edge id="90" source="Tom Corbett, Space Cadet" target="Playset" />
+      <edge id="91" source="Tom Corbett, Space Cadet" target="Internet Speculative Fiction Database" />
+      <edge id="92" source="Tom Corbett, Space Cadet" target="Joseph Greene (writer)" />
+      <edge id="93" source="Tom Corbett, Space Cadet" target="Tom Swift Jr." />
+      <edge id="94" source="Tom Corbett, Space Cadet" target="Bob and Ray" />
+      <edge id="95" source="Tom Corbett, Space Cadet" target="Penguin Books" />
+      <edge id="96" source="Tom Corbett, Space Cadet" target="Brick Bradford (serial)" />
+      <edge id="97" source="Tom Corbett, Space Cadet" target="The Hardy Boys" />
+      <edge id="98" source="Tom Corbett, Space Cadet" target="Biff Brewster" />
+      <edge id="99" source="Tom Corbett, Space Cadet" target="The Original Amateur Hour" />
+      <edge id="100" source="Tom Corbett, Space Cadet" target="Captain Z-Ro" />
+      <edge id="101" source="Tom Corbett, Space Cadet" target="The Colonial Radio Theatre on the Air" />
+      <edge id="102" source="Tom Corbett, Space Cadet" target="Captain Video and His Video Rangers" />
+      <edge id="103" source="Tom Corbett, Space Cadet" target="Bunkroom" />
+      <edge id="104" source="Tom Corbett, Space Cadet" target="Meg Duncan" />
+      <edge id="105" source="Tom Corbett, Space Cadet" target="Judy Bolton Series" />
+      <edge id="106" source="Tom Corbett, Space Cadet" target="Space opera" />
+      <edge id="107" source="Tom Corbett, Space Cadet" target="Connie Blair" />
+      <edge id="108" source="Tom Corbett, Space Cadet" target="Tom Quest" />
+      <edge id="109" source="Tom Corbett, Space Cadet" target="Al Markim" />
+      <edge id="110" source="Tom Corbett, Space Cadet" target="Kay Tracey" />
+      <edge id="111" source="Tom Corbett, Space Cadet" target="Nancy Drew" />
+      <edge id="112" source="Tom Corbett, Space Cadet" target="Lost Planet Airmen" />
+      <edge id="113" source="Tom Corbett, Space Cadet" target="Military science fiction" />
+      <edge id="114" source="Tom Corbett, Space Cadet" target="Western Publishing" />
+      <edge id="115" source="Tom Corbett, Space Cadet" target="Columbia Broadcasting System" />
+      <edge id="116" source="Tom Corbett, Space Cadet" target="Grosset &amp; Dunlap" />
+      <edge id="117" source="Tom Corbett, Space Cadet" target="Project Gutenberg" />
+      <edge id="118" source="Tom Corbett, Space Cadet" target="Rod Brown of the Rocket Rangers" />
+      <edge id="119" source="Tom Corbett, Space Cadet" target="Television" />
+      <edge id="120" source="Tom Corbett, Space Cadet" target="King of the Rocket Men" />
+      <edge id="121" source="Tom Corbett, Space Cadet" target="Frankie Thomas" />
+      <edge id="122" source="Tom Corbett, Space Cadet" target="Commando Cody" />
+      <edge id="123" source="Tom Corbett, Space Cadet" target="Danny Dunn" />
+    </edges>
+  </graph>
+</gexf>
