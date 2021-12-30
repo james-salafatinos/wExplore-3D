@@ -4,7 +4,7 @@
 /node_modules
 SSL
 notes.txt
-
+/tests
 *.ipynb
 
 /archive

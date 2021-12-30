@@ -55,6 +55,10 @@ var graphParams = {
     nodeCount: 25,
     edgeCount: 100,
 }
+var labelParams = {
+    showLabels: true
+
+}
 
 init();
 animate();
@@ -121,7 +125,7 @@ function init() {
                 break;
 
             case 'Space':
-                // if (canJump === true) velocity.y += 10;
+                // if (canJump === true) velocity.y f+= 10;
                 // canJump = true;
                 moveUp = true
                 break;
@@ -195,22 +199,23 @@ function init() {
 
                 if (intersects.length > 0) {
                     //console.log(intersects)
-                    let not_found = true;
+
+
+
+
+
                     intersects.forEach(element => {
-                        console.log(element.object.userData)
-                        if (element.object.userData) {
-                            not_found = false;
-                            console.log("Raycast found Label, ", element)
-                            console.log("Raycase found label.userdata.url", element.object.userData.url)
-                        
-                            iFrame = createFrame("Sunshine_Policy",
-                                camera.position.x + cameraLookDir(camera).x,
-                                camera.position.y + cameraLookDir(camera).y,
-                                camera.position.z + cameraLookDir(camera).z)
+                        if (element.object.type == 'Mesh') {
+                            if (element.object.userData.url != undefined) {
+                                console.log('LABEL & URL DETECTED', element.object)
 
+                                // iFrame = createFrame("Sunshine_Policy",
+                                iFrame = createFrame(element.object.userData.url,
+                                    camera.position.x + cameraLookDir(camera).x,
+                                    camera.position.y + cameraLookDir(camera).y,
+                                    camera.position.z + cameraLookDir(camera).z)
+                            }
                         }
-                        // console.log(element.object.type)
-
                     });
                 } else {
 
@@ -290,15 +295,15 @@ function init() {
 
                         loader.load(FONT_TYPEFACE, function (font) {
                             try {
-                                for (let i = 0; i <= Math.min(DATA.nodes.length,graphParams.nodeCount); i += 1) {
+                                for (let i = 0; i <= Math.min(DATA.nodes.length, graphParams.nodeCount); i += 1) {
                                     let label = DATA.nodes[i]['label']
-                                    
+
                                     let size = .4//DATA.nodes[i]['attributes']['importance']//.2
                                     let x = graph_config['origin'][0] + DATA.nodes[i]['x'] / SCALE
                                     let y = graph_config['origin'][1] + DATA.nodes[i]['y'] / SCALE
                                     let z = 1//let z = graph_config['origin'][2] + DATA.nodes[i]['z'] / SCALE
                                     // let z = DATA.nodes[i]['z'] / SCALE
-                                    let url = { url: label}
+                                    let url = { url: label }
 
                                     labelPlot(font, label, size, x, y, z, url)
                                 }
@@ -353,7 +358,7 @@ function init() {
         const colors = [];
         const sizes = [];
         const geometry = new THREE.BufferGeometry();
-        for (let i = 0; i <= Math.min(DATA.nodes.length,graphParams.nodeCount); i += 1) {
+        for (let i = 0; i <= Math.min(DATA.nodes.length, graphParams.nodeCount); i += 1) {
             try {
                 //Push Node XY Data
                 let _x = graph_config['origin'][0] + DATA.nodes[i]['x'] / SCALE
@@ -400,7 +405,7 @@ function init() {
     let edgePlot = function (DATA, graph_config) {
 
         const points = [];
-        for (let i = 0; i <= Math.min(DATA.edges.length,graphParams.edgeCount); i += 1) {
+        for (let i = 0; i <= Math.min(DATA.edges.length, graphParams.edgeCount); i += 1) {
             // console.log(db[DATA.edges[i]['source']])
             try {
                 points.push(
@@ -437,9 +442,25 @@ function init() {
     }
 
 
+
+    let createTextBackground = function (_x, _y, _z, w, h, d) {
+        const mat = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            transparent: true,
+            opacity: .5,
+            side: THREE.DoubleSide
+        });
+
+        let geo = new THREE.BoxGeometry(w,h,d)
+        let mesh = new THREE.Mesh(geo, mat)
+        mesh.position.x = _x
+        mesh.position.y = _y
+        mesh.position.z = _z
+        return mesh
+    }
     let labelPlot = function (font, label, size, x, y, z, userData) {
         //Define
-
+        console.log('In LabelPlot, ', userData)
         const color = 0x0f66ff;
         const matLite = new THREE.MeshBasicMaterial({
             color: color,
@@ -463,6 +484,19 @@ function init() {
         const text = new THREE.Mesh(geometry, matLite);
         text.userData = userData
         scene.add(text);
+
+        let _w_margin = -.25
+        let _w = xMid*2 + _w_margin
+        let _h = .7
+        let _d = .1
+
+        let background = createTextBackground(x, y+_h/3, z + .9, _w, _h, _d)
+        // background.geometry.computeBoundingBox();
+        // const xMid_b = - 0.5 * (background.geometry.boundingBox.max.x - background.geometry.boundingBox.min.x);
+        // background.geometry.translate(xMid_b, 0, 0);
+        //Reloc
+        scene.add(background)
+
 
     }
 
@@ -533,7 +567,7 @@ function init() {
         frameDiv.style.marginTop = '-1em';
         const frameLabel = new CSS3DObject(frameDiv);
         frameLabel.scale.set(frameScale.x, frameScale.y, frameScale.z)
-        console.log('frameLabel', frameLabel)
+        // console.log('frameLabel', frameLabel)
         // frameLabel.position.set(_x, _y, _z);
         frameLabel.position.x = -1
         frameLabel.position.y = 17
@@ -572,16 +606,16 @@ function init() {
     //     // When we receive data
     //     function (data) {
     //         console.log("mouse: " + data.x + " " + data.y + " " + data.z);
-            
+
     //         if (players.length == 0){
     //             otherPlayer = createPlayer(data.x, data.y, data.z)
     //             scene.add(otherPlayer)
     //         }
-            
+
     //         otherPlayer.position.x = data.x
     //         otherPlayer.position.y = data.y
     //         otherPlayer.position.z = data.z
-     
+
     //     });
     // socket.on('msg',
     //     // When we receive data
@@ -624,7 +658,7 @@ function init() {
 
 
 
-        
+
     /**
      * GUI
      */
@@ -634,20 +668,27 @@ function init() {
     cameraFolder.add(camera.position, 'y', 0, 15)
     cameraFolder.add(camera.position, 'z', 0, 15)
     // cameraFolder.open()
-    
+
     const flyControls = gui.addFolder('Fly Controls')
     flyControls.add(flyParams, 'flySpeed', 10, 2000)
     flyControls.add(flyParams, 'flyRelease', 1, 30)
-   
+
     const graphControls = gui.addFolder('Graph Controls')
-    graphControls.add(graphParams, 'nodeCount', 1, 10000).onFinishChange(() =>{
-        console.log('CHANGING')
+    graphControls.add(graphParams, 'nodeCount', 1, 10000).onFinishChange(() => {
+        console.log('CHANGING NODES')
         scene.clear()
         populate(CONFIG_FP)
 
     })
-    graphControls.add(graphParams, 'edgeCount', 1, 200000)
-  
+    graphControls.add(graphParams, 'edgeCount', 1, 200000).onFinishChange(() => {
+        console.log('CHANGING EDGES')
+        scene.clear()
+        populate(CONFIG_FP)
+
+    })
+    const labelControls = gui.addFolder('Label Controls')
+    labelControls.add(labelParams, 'showLabels')
+
     //Zoom
     window.addEventListener('wheel', (event) => {
         event.preventDefault(); /// prevent scrolling
@@ -705,6 +746,7 @@ function animate() {
         velocity.x -= velocity.x * flyParams.flyRelease * delta;
         velocity.z -= velocity.z * flyParams.flyRelease * delta;
 
+
         velocity.y -= GRAVITY * velocity.y * flyParams.flyRelease * delta; // 100.0 = mass
 
         direction.z = Number(moveForward) - Number(moveBackward);
@@ -749,7 +791,7 @@ function animate() {
     renderer.render(scene, camera);
     labelRenderer.render(scene, camera);
 
-    frameIndex ++;
+    frameIndex++;
 
 }
 
