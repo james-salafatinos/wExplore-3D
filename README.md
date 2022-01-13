@@ -1,6 +1,6 @@
 # Welcome to wExplore-3D
 ## What is it?
-wExplore is a system of tools designed to browse wikipedia and other dense networks in a more interesting way.
+#### wExplore-3D is a system of tools designed to browse wikipedia and other dense networks in a more interesting way.
 
 
 ## 🚀 Demo
@@ -20,17 +20,16 @@ Wikipedia topics
 5. GPU rendered graphics in the browser (ability to view medium to large graphs)
 
 ## 🛠️ Local Installation Steps
-Inclusive of:
 1. Clone the repository:
-```
-git clone https://github.com/james-salafatinos/wExplore-3D.git
-```
+    ```
+    git clone https://github.com/james-salafatinos/wExplore-3D.git
+    ```
 2. Install dependencies
-```
-npm install
-python -m pip install -r requirements.txt
-```
-**Note**: Ensure Microsoft C++ Build Tools are installed: https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019, as Cython is a dependency for optimized ForceAtlas2 python library (fa2).
+    ```
+    npm install
+    python -m pip install -r requirements.txt
+    ```
+    **Note**: Ensure Microsoft C++ Build Tools are installed: https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019, as Cython is a dependency for optimized ForceAtlas2 python library (fa2).
 
 3. Edit the `config.json` file to reference your filepath(s) and graph name(s)
 
