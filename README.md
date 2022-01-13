@@ -5,7 +5,7 @@
 
 ## 🚀 Demo
 
-![](img/wExplore-view.gif)
+![](static/screen-capture (1).gif)
 
 ## 💥 Usage
 
