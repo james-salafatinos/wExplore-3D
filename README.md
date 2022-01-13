@@ -37,12 +37,8 @@ Wikipedia topics
     ```
     py utils/wScrape.py Tom_Corbett,_Space_Cadet --write_to 'data_test.gexf'
     py utils/embed.py data/data.gexf --write_to 'data_test.json'
-    npm start
     ```
-    (Optional) Running a different version of Python installed on your system, for example, Python3.7 usage:
-    ```
-    C:\Users\jsalafatinos\AppData\Local\Programs\Python\Python37\python.exe utils/wScrape.py Tom_Corbett,_Space_Cadet --write_to 'data_test.gexf'
-    ```
+
 
 ## Todo
 [ ] Update CSS3D spawned web pages to be dynamically associated to the node (looking at the label and the label name for the URL component)
@@ -59,3 +55,8 @@ Wikipedia topics
 [ ] Attribute information showing: To be able to pass in an object of attributes via the .json graph viz file format, and then the wExplore world show the attributes on command. Example: fly up to a node, press KeyV and then it pulls up a little text window of the attributes shown.
 [X] Internal Wikipedia iframe: https://github.com/mrdoob/three.js/blob/master/examples/css2d_label.html
 [X] Spinning grid below the visual with a hologram
+
+(Optional) Running a different version of Python installed on your system, for example, Python3.7 usage:
+    ```
+    C:\Users\jsalafatinos\AppData\Local\Programs\Python\Python37\python.exe utils/wScrape.py Tom_Corbett,_Space_Cadet --write_to 'data_test.gexf'
+    ```
