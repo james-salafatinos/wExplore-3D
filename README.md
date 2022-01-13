@@ -5,7 +5,7 @@
 
 ## 🚀 Demo
 
-![](static/screen-capture (1).gif)
+![](static/demo.gif)
 
 ## 💥 Usage
 
