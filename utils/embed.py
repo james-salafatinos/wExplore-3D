@@ -135,7 +135,8 @@ def synthesize(G, embeddings, color_map, size_map, color_values_from_PR, attribu
                                           y=y,
                                           z=0,
                                           _id=node['id'],
-                                          attributes = {'importance': cv_map[node['label']]},
+                                          attributes={
+                                              'importance': cv_map[node['label']]},
                                           color_map=color_map,
                                           size_map=size_map)
         nodes.append(converted_node)
@@ -161,5 +162,6 @@ if __name__ == "__main__":
     G = loadGEXF(args.gexf_file)
     embeddings = compute_embeddings(G)
     color_map, size_map, color_values_from_PR = get_page_rank_and_colors(G)
-    payload = synthesize(G, embeddings, color_map, size_map, color_values_from_PR)
+    payload = synthesize(G, embeddings, color_map,
+                         size_map, color_values_from_PR)
     write_to_json(payload, 'data.json')

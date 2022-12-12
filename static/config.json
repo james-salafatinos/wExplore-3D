@@ -1,11 +1,11 @@
 {
-    "graphs": [
-        {
-            "name": "Dwarf",
-            "id": 1,
-            "type": "directed graph",
-            "filepath": "data/dwarf.json",
-            "origin": [-200,0,0]
-        }
-    ]
-} 
+  "graphs": [
+    {
+      "name": "Dwarf",
+      "id": 1,
+      "type": "directed graph",
+      "filepath": "data/runescape.json",
+      "origin": [-200, 0, 0]
+    }
+  ]
+}
